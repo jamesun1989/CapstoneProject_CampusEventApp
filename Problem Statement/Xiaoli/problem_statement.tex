@@ -1,0 +1,72 @@
+\documentclass[10pt,letterpaper]{article}
+
+\usepackage{color}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{geometry}
+\geometry{left=0.75in, right=0.75in, top=0.75in, bottom=0.75in}
+
+\def\name{Xiaoli Sun}
+
+
+\begin{document}
+\begin{titlepage}
+\begin{center}
+    \Huge
+    \textbf{Problem Statement}
+    
+    \vspace{0.5in}
+    \large
+    CS461 - CS Senior Capstone\\
+    
+    \vspace{0.2in}
+    \large
+    Fall 2017\\
+    
+    \vspace{0.2in}
+    \large
+    Instructor: D. Kevin McGrath, Kirsten Winters\\
+    
+    \vspace{0.2in}
+    \textbf{Xiaoli Sun}
+    
+    \vspace{0.5in}
+    \textbf{Abstract}\\
+    \vspace{0.2in}
+    Many events are holding in OSU campus every day. From big events such as OSU football games and career fairs to small events like group activities and small conferences, all participants are not willing to miss their favorite events. The campus event app focus on OSU campus events and it will provide all OSU students and faculties excellent experiences on discovering OSU campus events, getting notifications, and even form a group with other participants who attend the same events or have the same interests. To retrieving all required data from database, we need to use API provided by OSU and then get JSON string. The app also has a secure login which would prove the login information of students and faculties will not be hacked. The app will be designed to work with either Android or iOS, and distributed via either on Apple Store or Google Play.
+    
+    \vspace{0.3in}
+    \vfill
+    %\Large 
+    
+    Oct 9, 2017
+
+\end{center}
+\end{titlepage}
+
+\newpage
+
+\begin{center}
+\large
+\textbf{Problem Description}
+\end{center}
+
+First of all, mobile app must have secure login which could prevent students and faculties’ account information. The mobile app should be developed with a well-designed and user-friendly interface. There will be 4 buttons on the navigation bar at the bottom of the app, these buttons represent different sections of the app: Feed, Discover, Group and Profile. To retrieve data from database provided by the client, the app must retrieve JSON strings through API server and then retrieve appropriate data from JSON strings. In group screen, the app must allow users to form a group with other students or faculties. The mobile app also must show users’ profile at profile screen and allow users to change profile information. If we decided to develop the application in iOS, we need to find a way to solve it because none of us has a MacBook. The development will either based on React Native or under the corss-platform like Xamarin. The application will be avoiding branding as an Oregon State University. Lastly, the app itself must require small downloads, and available for iOS or Android services. \\
+
+\begin{center}
+\large
+\textbf{Problem Solution}
+\end{center}
+
+The mobile app will be using OAuth 2.0 for secure login and retrieve data from server. OAuth 2.0 will authenticate users’ login information in following several steps: 1. Users will be asked to enter user name and password before login. 2. After users enter user name and password, the application will begin to request an access token from server. 3. If the application identity and user login information is valid, API server will issue an access token. 4. The application then could use the access token to request information from API server. 5. If the access token is valid, the application will retrieve information from server as JSON strings. The design of the mobile app will be solved by using an online mockup tool. Moreover, we will use interactive pdf file to see if the UI is user-friendly or not. There are 4 different parts in the app. In the feed screen, we will list all campus event data that retrieved from server. The data in this screen will be arranged vertically so that every list of information could be clearly showed. In the discover screen, campus events will be separated and classified according to different event types like sports, music, etc. By clicking different types of events, users will advance to the screen with a list of corresponding campus events. In the group screen, we will design several drop-down menus to let users select their favorite events and search for groups for that event. A join button will also in this screen so that users could join the group they want by clicking the join button. In the profile screen, we will show users’ information and create several input box for users to change their names, password. An upload box will also be created in this screen so that users could use it to upload an image as their profile photos. We will also build a selection in this screen to allow users change preference of application. For preference, we will let users change the following settings: notification, give feedback. In notification preference, we will have a list of notification settings for users to choose, for example, open/close announcements, open/close push announcements. We will also create a drop-down menu for users to select announcement frequency. There will be an input box and a submit button in give feedback screen which will allow users type commands or complains about the application. Our group haven’t decided which platform we will use to develop this application but if we decide to develop the application under iOS, we will install cross-platform compiler like Xamarin on our PC and then learn how to write C\#, or we will use React Native as development platform. React Native is an open source cross-platform development frame. If we decide to use React Native, we will begin to learn JavaScript. In order to avoid branding the application as Oregon State University, we will design a new logo for this application.  Finally, the only future cost for this app are the cost of releasing the app to Google Play or Apple Store. We are looking forward to showing a functional app at the engineering expo.\\
+
+\begin{center}
+\large
+\textbf{Problem Metrics}
+\end{center}
+
+The completion of our project will primarily be measured by delivering a functional app. For example, after users entering user name and password, they will successfully login to app and then the main screen of app will have information listed. Users will also successfully join group for different events in group screen. 
+
+
+\end{document}
