@@ -1,5 +1,5 @@
-  Capstone Project - Campus Event App
-  Group 48
-  Xiaoli Sun
-  Sung Ha Kim
-  Zijian Huang
+  Capstone Project - Campus Event App <br>
+  Group 48 <br>
+  Xiaoli Sun <br>
+  Sung Ha Kim <br>
+  Zijian Huang 
