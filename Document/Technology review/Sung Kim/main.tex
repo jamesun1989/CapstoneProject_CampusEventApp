@@ -1,0 +1,131 @@
+\documentclass[letterpaper, 10pt,titlepage]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage [english]{babel}
+\usepackage [autostyle, english = american]{csquotes}
+\usepackage{graphicx}                                        
+\usepackage{amssymb}                                         
+\usepackage{amsmath}                                         
+\usepackage{amsthm}                                          
+\usepackage{alltt}                                           
+\usepackage{float}
+\usepackage{color}
+\usepackage{url}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+\usepackage{pst-gantt}
+\usepackage{pst-tools}
+\usepackage[letterpaper, margin=0.75in]{geometry}
+\usepackage[TABBOTCAP, tight]{subfig}
+\usepackage{balance}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks = true,
+  linkcolor  = black
+}
+
+\setcounter{secnumdepth}{4}
+\def\name{Group 48}
+
+\hypersetup{
+  colorlinks = true,
+  urlcolor = black,
+  pdfauthor = {\name},
+  pdfkeywords = {Problem Statement},
+  pdftitle = {Capstone Project},
+  pdfsubject = {Capstone Project},
+  pdfpagemode = UseNone
+}
+
+
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+    \Huge
+    \textbf{Campus Events Mobile Application}
+    \textbf{Capstone Project}\\
+    \vspace{1.0cm}
+    \large
+    Developers: Sung Kim, Xiaoli Sun, Zijian Huang\\
+    Client: David Vasquez\\
+    \vspace{1.5cm}
+    \large
+    Instructors D. Kevin McGrath, Kirsten Winters
+
+    \large
+    CS 461, Fall 2017, Oregon State University\\    
+
+    \vspace{3.2cm}
+
+    \large
+    \underline{Abstract}\\
+    \vspace{0.3cm}
+    \end{center}
+    \large
+
+Every day, Oregon State University holds many events around campus. Big events like football games to small events like club meetings. Anyone who wants to be involved around campus would hate if they missed out, so David Vasquez proposed a solution for this issue. The campus events mobile application will provide students and community a neat and organized place to find all the events around campus. This application will retrieve data from various groups around the community and display the information on your smartphone. 
+    
+    \vspace{0.8cm}
+    \vfill
+    
+\begin{center}    
+    Nov 12, 2017
+
+\end{center}
+\end{titlepage}
+
+
+\tableofcontents
+\newpage
+
+
+
+\section{Role in project}
+
+Throughout this project, my role will change depending on what needs to be done. Front-end development will play a key role in this project, so ensuring we deliver a quality application, my group will work on multiple parts. A majority of the time I will play as the database administrator with our client David Vasquez to properly manage and manipulate the database. As a database administrator, I will help create the database architecture that is easy to follow and maintain. Depending on how fast the application is completed, the team will move on to developing an administrator website, so everyone's role will be switched to a web developer.
+
+%\vspace{0.3cm}
+
+\section{Criteria}
+
+The Evently application team will create a mobile application that works on both Andoird and iOS platforms. This is to ensure that this application is available to as many people as possible. This application will help manage different events that you could go to and help find more events that will interest the user. I personally want to create help create a mobile application. Mobile application development has been something I have been interested in and this will be a good start to learn a lot. I will also be able to apply my current knowledge to an application that will be delivered to a client and possibly multiple users. 
+
+\section{Potential Choices}
+
+\subsection{MySQL}
+
+MySQL is an open-source database management system. You can use it to store an immense amount of data depending on your project. MySQL databases are relational meaning data is stored in tables rather than being stored in one place. You can set up various rules for the for the database that help manage and manipulate each table. We chose this software because our client has already set up a MySQL database to for the application we are creating. I agreed with his decision on picking this software due to the fact that MySQL databases can be fast and very easy to use. More specifically, a powerful tool, known as joining tables, is very easy compared to joining in a NoSQL database. The limitations of MySQL databse include those of any relational database, which include horizontal scaling and the ability of multiple transaction loads (More than a million). This project will not require multiple transactions of the database so it's well suited for this project. Some companies that use MySQL databases include Uber and Pinterest. 
+
+\subsection{Moqups}
+
+Moqups is a powerful UI and prototyping tool. I recommended this tool to our client since he was originally creating prototypes by hand. From personal use of this tool, we can effectively demonstrate the functionality of the mobile application. During our meetings with the client, this is essential to the development process so we know exactly what David wants and how we will start development. It's quick and easy to use with a vast variety of tools. This tool is free to use until you use too many objects for your prototype.
+
+\subsection{React Native}
+
+React native is a JavaScript framework for writing native applications. With this framework, you can create applications for both Android and iOS based on the same codebase. This is very helpful for our original goal of making an application for both platforms. This framework is based on the React JavaScript library because it is React. The difference between the two is that React Native is used for building mobile applications. React Native still implements ReactJS under the hood. React native is very quick too, with their new Hot Reload functionality. React native was chosen mainly due to the fact how popular it is. Some companies that use this framework for their application include Facebook, Instagram, and Tesla.
+
+\vspace{0.5cm}
+
+
+\section{Discussion}
+\subsection{Mongo DB}
+
+MongoDB, a NoSQL database was also in consideration for how we would store data. The comparison between to two is essentially asking what's the difference between a relational database vs a NoSQL database. Each has its own pros while each has their own cons. Ultimately we decided to use MySQL for multiple reasons such as joining of tables, and amount of manipulations made to the database. For our project, joins will be needed to combine tables with proper key relations. This is to efficiently sort our tables.
+
+\subsection{InVision}
+
+When picking a UI prototyping tool, this is usually done by preference. I've looked into a couple other solutions, such as InVision, which seem like a better alternative to Moqups. At the time, when we choose a tool to use Moqups was one I have personally used and had great success with, but after looking up information on InVision, this tool might be the way to go. It's free and multiple companies use this software such as Twitter and Netflix. 
+
+\subsection{Iconic}
+
+Our main reason for wanting to develop Evently with React Native is to create a native application. The Iconic framework is a hybrid development framework that uses web technologies to write the application. Compared to using a native application, it will be slower and less effective. 
+
+\section{Conclusion}
+
+While the prototyping tool is still in question, the core foundations for making the applications are set. These tool are industry standards making them a bit of a challenge to learn, but will provide a good amount of experience for me. Unless immediate changes are needed, this applications is ready to begin development.
+
+\end{document}
