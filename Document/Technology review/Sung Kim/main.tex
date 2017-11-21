@@ -1,131 +1,172 @@
-\documentclass[letterpaper, 10pt,titlepage]{article}
-
-\usepackage[utf8]{inputenc}
-\usepackage [english]{babel}
-\usepackage [autostyle, english = american]{csquotes}
-\usepackage{graphicx}                                        
-\usepackage{amssymb}                                         
-\usepackage{amsmath}                                         
-\usepackage{amsthm}                                          
-\usepackage{alltt}                                           
-\usepackage{float}
-\usepackage{color}
+\documentclass[onecolumn, draftclsnofoot,10pt, compsoc]{IEEEtran}
 \usepackage{url}
-\newcommand\tab[1][1cm]{\hspace*{#1}}
-\setlength{\parindent}{0em}
-\setlength{\parskip}{1em}
-\usepackage{pst-gantt}
-\usepackage{pst-tools}
-\usepackage[letterpaper, margin=0.75in]{geometry}
-\usepackage[TABBOTCAP, tight]{subfig}
-\usepackage{balance}
-\usepackage{enumitem}
-\usepackage{hyperref}
-\hypersetup{
-  colorlinks = true,
-  linkcolor  = black
-}
+\usepackage{setspace}
 
-\setcounter{secnumdepth}{4}
-\def\name{Group 48}
+\usepackage{geometry}
+\geometry{textheight=9.5in, textwidth=7in}
 
-\hypersetup{
-  colorlinks = true,
-  urlcolor = black,
-  pdfauthor = {\name},
-  pdfkeywords = {Problem Statement},
-  pdftitle = {Capstone Project},
-  pdfsubject = {Capstone Project},
-  pdfpagemode = UseNone
-}
+% 1. Fill in these details
+\def \CapstoneTeamName{		Evently}
+\def \CapstoneTeamNumber{		48}
+\def \GroupMemberOne{			Sung Kim}
+\def \GroupMemberTwo{			Xiaoli Sun}
+\def \GroupMemberThree{			Zijian Huang}
+\def \CapstoneProjectName{		Campus Events Mobile Application}
+\def \CapstoneSponsorPerson{		David Vasquez}
 
+% 2. Uncomment the appropriate line below so that the document type works
+\def \DocType{		Technology Review
+				%Requirements Document
+				%Technology Review
+				%Design Document
+				%Progress Report
+				}
+			
+\newcommand{\NameSigPair}[1]{\par
+\makebox[2.75in][r]{#1} \hfil 	\makebox[3.25in]{\makebox[2.25in]{\hrulefill} \hfill		\makebox[.75in]{\hrulefill}}
+\par\vspace{-12pt} \textit{\tiny\noindent
+\makebox[2.75in]{} \hfil		\makebox[3.25in]{\makebox[2.25in][r]{Signature} \hfill	\makebox[.75in][r]{Date}}}}
+% 3. If the document is not to be signed, uncomment the RENEWcommand below
+\renewcommand{\NameSigPair}[1]{#1}
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-
 \begin{titlepage}
-\begin{center}
-    \Huge
-    \textbf{Campus Events Mobile Application}
-    \textbf{Capstone Project}\\
-    \vspace{1.0cm}
-    \large
-    Developers: Sung Kim, Xiaoli Sun, Zijian Huang\\
-    Client: David Vasquez\\
-    \vspace{1.5cm}
-    \large
-    Instructors D. Kevin McGrath, Kirsten Winters
+    \pagenumbering{gobble}
+    \begin{singlespace}
+        \hfill 
+        \par\vspace{.2in}
+        \centering
+        \scshape{
+            \huge CS 461 Capstone \DocType \par
+            \large Fall 2017
+            \vspace{.5in}
+            {\large\today}\par
+            \vspace{.5in}
+            \textbf{\Huge\CapstoneProjectName}\par
+            \vfill
+            {\large Prepared for}\par
+            \vspace{5pt}
+            {\Large\NameSigPair{\CapstoneSponsorPerson}\par}
+            \vspace{5pt}
+            {\large Prepared by }\par
+            \vspace{5pt}
+            {\Large\NameSigPair{\GroupMemberOne}\par}
+            {\large Group  }
+            {\Large\NameSigPair{\CapstoneTeamNumber}\par}
+            \vspace{5pt}
 
-    \large
-    CS 461, Fall 2017, Oregon State University\\    
+            % 5. comment out the line below this one if you do not wish to name your team
 
-    \vspace{3.2cm}
-
-    \large
-    \underline{Abstract}\\
-    \vspace{0.3cm}
-    \end{center}
-    \large
-
-Every day, Oregon State University holds many events around campus. Big events like football games to small events like club meetings. Anyone who wants to be involved around campus would hate if they missed out, so David Vasquez proposed a solution for this issue. The campus events mobile application will provide students and community a neat and organized place to find all the events around campus. This application will retrieve data from various groups around the community and display the information on your smartphone. 
-    
-    \vspace{0.8cm}
-    \vfill
-    
-\begin{center}    
-    Nov 12, 2017
-
-\end{center}
+            \vspace{20pt}
+        }
+        \begin{abstract}
+        This document will be separated into three pieces discussing what technologies will be used for the implementation of the application. The first piece will cover how the application will hold and manipulate data. The second will discuss which tools will be used when designing and prototyping the User Interface. The last piece we will review what framework the application will be developed in.
+        \end{abstract}     
+    \end{singlespace}
 \end{titlepage}
-
-
-\tableofcontents
 \newpage
-
-
+\pagenumbering{arabic}
+\tableofcontents
+\clearpage
 
 \section{Role in project}
 
-Throughout this project, my role will change depending on what needs to be done. Front-end development will play a key role in this project, so ensuring we deliver a quality application, my group will work on multiple parts. A majority of the time I will play as the database administrator with our client David Vasquez to properly manage and manipulate the database. As a database administrator, I will help create the database architecture that is easy to follow and maintain. Depending on how fast the application is completed, the team will move on to developing an administrator website, so everyone's role will be switched to a web developer.
+Throughout this project, my role will change depending on what needs to be done. A majority of the time I will play as the database administrator with our client David Vasquez to properly manage and manipulate the database. As a database administrator, I will help create the database architecture that is easy to follow and maintain. Depending on how fast the application is completed, the team will move on to developing an administrator website. Everyones role after this would be switched to web developer.
 
-%\vspace{0.3cm}
+% Piece One
+\section{Database}
+\subsection{Overview}
 
-\section{Criteria}
+For any application to work, it needs a location to store large amounts of data. In the case of the Evently Application, we will be storing event data, user information and administrator information. When researching for different databases to use, we ran into the issue of either using a relational database or a NoSQL database. We found two possible relational databases, MySQL and the Oracle Database, and one NoSQL database called MongoDB.
 
-The Evently application team will create a mobile application that works on both Andoird and iOS platforms. This is to ensure that this application is available to as many people as possible. This application will help manage different events that you could go to and help find more events that will interest the user. I personally want to create help create a mobile application. Mobile application development has been something I have been interested in and this will be a good start to learn a lot. I will also be able to apply my current knowledge to an application that will be delivered to a client and possibly multiple users. 
+\subsection{Criteria}
 
-\section{Potential Choices}
+The mobile application will be grabbing information from a database and presenting it to a user. Also included will be a search feature that will go through a list of events or groups. So we needed a database that can be easily searched through and has a low volatility. We will also need to be able to group different types of information. Another factor that will be looked at, for all technologies, will be the price.
 
-\subsection{MySQL}
+\subsection{Potential Choices}
+\subsubsection{MySQL}
 
-MySQL is an open-source database management system. You can use it to store an immense amount of data depending on your project. MySQL databases are relational meaning data is stored in tables rather than being stored in one place. You can set up various rules for the for the database that help manage and manipulate each table. We chose this software because our client has already set up a MySQL database to for the application we are creating. I agreed with his decision on picking this software due to the fact that MySQL databases can be fast and very easy to use. More specifically, a powerful tool, known as joining tables, is very easy compared to joining in a NoSQL database. The limitations of MySQL databse include those of any relational database, which include horizontal scaling and the ability of multiple transaction loads (More than a million). This project will not require multiple transactions of the database so it's well suited for this project. Some companies that use MySQL databases include Uber and Pinterest. 
+MySQL is an open-source database management system created back in 1995. Many companies still use this tool today, such as Uber and Pinterest. You can set up various rules for the database that will help manage and manipulate each table. We chose this software because our client has already set up a MySQL database for the application we are creating. Another reason to use this tool is a powerful feature called joining. Joining combines information from two or more tables into one, which we will need for this application.
 
-\subsection{Moqups}
+\subsubsection{MongoDB}
 
-Moqups is a powerful UI and prototyping tool. I recommended this tool to our client since he was originally creating prototypes by hand. From personal use of this tool, we can effectively demonstrate the functionality of the mobile application. During our meetings with the client, this is essential to the development process so we know exactly what David wants and how we will start development. It's quick and easy to use with a vast variety of tools. This tool is free to use until you use too many objects for your prototype.
+MongoDB is an open-source NoSQL database. NoSQL databases are great for storing large amounts of data without having to worry about any type of structure. Another useful feature that comes with the use of NoSQL databases includes the ability to handle large amounts of manipulation within a database.
 
-\subsection{React Native}
+\subsubsection{Amazon Aurora}
 
-React native is a JavaScript framework for writing native applications. With this framework, you can create applications for both Android and iOS based on the same codebase. This is very helpful for our original goal of making an application for both platforms. This framework is based on the React JavaScript library because it is React. The difference between the two is that React Native is used for building mobile applications. React Native still implements ReactJS under the hood. React native is very quick too, with their new Hot Reload functionality. React native was chosen mainly due to the fact how popular it is. Some companies that use this framework for their application include Facebook, Instagram, and Tesla.
+The Amazon Aurora is a relational database engine designed for the cloud. This tool is compatible with both MySQL and PostgreSQL databases.The speed of the tool is what really stands out and according to the website "Aurora is up to five times faster than standard MySQL databases and three times faster than standard PostgreSQL databases."
 
-\vspace{0.5cm}
+\subsection{Discussion}
 
+When making a decision between these three products, it came down to a decision between a relational and NoSQL database. Relational databases handle small amounts of manipulation very well compared to a NoSQL database that can handle millions at a time. The Evently application does not require millions of changes in a short period of time since these changes will be managed by a group administrator. To add on to the fact, joining tables is a much-needed feature of the project which is a lot simpler in a relational database. As for comparing the relational databases, Amazon Aurora and NoSQL, came down to the cost. Aurora is not an open-source tool, meaning we will have to pay to use this service.
 
-\section{Discussion}
-\subsection{Mongo DB}
+\subsection{Conclusion}
 
-MongoDB, a NoSQL database was also in consideration for how we would store data. The comparison between to two is essentially asking what's the difference between a relational database vs a NoSQL database. Each has its own pros while each has their own cons. Ultimately we decided to use MySQL for multiple reasons such as joining of tables, and amount of manipulations made to the database. For our project, joins will be needed to combine tables with proper key relations. This is to efficiently sort our tables.
+Of the three products presented, MySQL seems to be the best choice for this application. NoSQL database are too unorganized for the content the application is providing and Amazon Aurora is not free to use. 
 
-\subsection{InVision}
+\clearpage
+% Piece Two
+\section{Wireframe Tools}
+\subsection{Overview}
 
-When picking a UI prototyping tool, this is usually done by preference. I've looked into a couple other solutions, such as InVision, which seem like a better alternative to Moqups. At the time, when we choose a tool to use Moqups was one I have personally used and had great success with, but after looking up information on InVision, this tool might be the way to go. It's free and multiple companies use this software such as Twitter and Netflix. 
+Designing a simple and easy to use interface is quite possibly the biggest portion of creating a new application. There are multiple tools that anyone can use to make a prototype of a mobile application. These tools help accelerate development process by providing a visual that the developers can work towards. Our initial designs were all drawn by hand from our client. I recommended one of these tools so he can show us a clear picture of how the application should look.
 
-\subsection{Iconic}
+\subsection{Criteria}
 
-Our main reason for wanting to develop Evently with React Native is to create a native application. The Iconic framework is a hybrid development framework that uses web technologies to write the application. Compared to using a native application, it will be slower and less effective. 
+When using one of these tools, we are looking for something simple and easy to learn. It should have the ability to create mock applications that mimic functionality. Finally. the ability to share the prototype you created, so the rest of the team can see it.
 
-\section{Conclusion}
+\subsection{Potential Choices}
+\subsubsection{Moqups}
 
-While the prototyping tool is still in question, the core foundations for making the applications are set. These tool are industry standards making them a bit of a challenge to learn, but will provide a good amount of experience for me. Unless immediate changes are needed, this applications is ready to begin development.
+Moqups is a web-based wireframing tool that lets you create user interface designs. It gives you the ability to create functional prototypes with a wide variety of features you can add to the application. Moqups also provides templates for both Android and iOS platforms. The first 300 stencils are free, but can later be upgraded if you sign up with an annual plan.
+
+\subsubsection{InVision}
+
+Just like Moqups, InVIsion provides users a powerful design prototyping tool. It also allows you to create a functional prototype that you can use to show off the application. The collaboration feature really stands out on this tool. This creates a direct connection between team members and clients to receive comments directly in case something need to be edited. 
+
+\subsubsection{Wireframe.cc}
+
+Wireframe.cc provides a more simple interface for creating mock ups. Works like a sketchbook/paint that provides basic things like scroll bars and text boxes for you to add onto your template. It gives you the option to change what type of device you are on, such as a web browser or on your phone.  
+
+\subsection{Discussion}
+
+Wireframe.cc was a little too simple. Compared to Moqups and InVision, the number of features was lacking. The reason Moqups and Invision stood out the most is that of their ability to create functional prototypes. Preparing a live demo for your client provides more value to the them, and you will receive a more appropriate response to what needs to be added or edited. When comparing Moqups and InVision, InVision seems like it's the way to go. More reputable companies and have gone and commented on Invision, companies like Twitter, Uber, and Nike have stated how creating these design beforehand make them great goals to work towards. 
+
+\subsection{Conclusion}
+
+Picking UI prototyping tools is normally based on preference. The first UI design was drawn on paper, which made it a little hard to see, so I recommended Moqups to my team when we were trying to think of a design. After researching about possible alternatives, InVision really stuck out to me. The example prototypes looked a lot cleaner and they have many positive comments from reputable companies. 
+
+\clearpage
+% Piece Three
+\section{Development Framework}
+\subsection{Overview}
+
+A framework provides a structure to support the development of applications made for a specific environment. In our case, we would need a framework that is able to create mobile applications. Using frameworks speed up the process of development by providing easy access to tools and features. 
+
+\subsection{Criteria}
+
+The key component we are looking for is the ability to develop an application on both Android and iOS platforms. The initial requirement for this project was to develop in either one, but we decided to create it for both. Another feature we would like to have is the application being as close to a native application as possible. This will ensure that the application runs smoothly and without a lot of error. 
+
+\subsection{Potential Choices}
+\subsubsection{React Native}
+React native is a JavaScript framework for writing native applications. With this framework, you can create applications for both Android and iOS based on the same codebase. This framework is based on the React JavaScript library. The difference between the two is that React Native is used for building mobile applications. Some companies that use this framework for their application include Facebook, Instagram, and Tesla.
+\subsubsection{Iconic}
+
+Iconic is an HTML5 mobile application framework used to write hybrid applications. Hybrid applications are essentially websites on a mobile platform. Iconic can be styled to make the application look like a native application. Development in this framework can also be achieved using CSS or JavaScript regardless of the operating platform. 
+\subsubsection{PhoneGap}
+
+Another hybrid application development framework, PhoneGap, usually isn't paired by itself. This framework uses the Cordova plugins to connect applications to native API's. Some examples of native API's include GPS, camera, notifications, etc.
+
+\subsection{Discussion}
+
+The Iconic and PhoneGap frameworks are usually paired together to make the application look and feel like a native app. In contrast, React Native will create applications very similar to native applications, which will have access to more of the native features without restriction. Native applications usually performs better than their hybrid counterparts but can be harder to implement.
+\subsection{Conclusion}
+
+The React Native framework provides us a bit more of a challenge when developing the application, but the challenge is well worth it since we are creating a better performing app. We decided to stick with the React Native framework to gain more experience with the technology.
+
+\clearpage
+\section{References}
+
 
 \end{document}
