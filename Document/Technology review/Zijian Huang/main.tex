@@ -1,0 +1,181 @@
+\documentclass[letterpaper, 10pt,titlepage]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage [english]{babel}
+\usepackage [autostyle, english = american]{csquotes}
+\usepackage{graphicx}                                        
+\usepackage{amssymb}                                         
+\usepackage{amsmath}                                         
+\usepackage{amsthm}                                          
+\usepackage{alltt}                                           
+\usepackage{float}
+\usepackage{color}
+\usepackage{url}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+\usepackage{pst-gantt}
+\usepackage{pst-tools}
+\usepackage[letterpaper, margin=0.75in]{geometry}
+\usepackage[TABBOTCAP, tight]{subfig}
+\usepackage{balance}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks = true,
+  linkcolor  = black
+}
+
+\setcounter{secnumdepth}{4}
+\def\name{Group 48}
+
+\hypersetup{
+  colorlinks = true,
+  urlcolor = black,
+  pdfauthor = {\name},
+  pdfkeywords = {Problem Statement},
+  pdftitle = {Capstone Project},
+  pdfsubject = {Capstone Project},
+  pdfpagemode = UseNone
+}
+
+
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+    \Huge
+    \textbf{Campus Events Mobile Application}
+    \textbf{Technology review}\\
+    \vspace{1.0cm}
+    \large
+    Developers: Zijian Huang, Sung Kim, Xiaoli Sun (Group 48)\\
+    Client: David Vasquez\\
+    \vspace{1.5cm}
+    \large
+    Instructors D. Kevin McGrath, Kirsten Winters
+
+    \large
+    CS 461, Fall 2017, Oregon State University\\    
+
+    \vspace{3.2cm}
+
+    \large
+    \underline{Abstract}\\
+    \vspace{0.3cm}
+    \end{center}
+    \large
+
+The campus events mobile application sponsored by David Vasquez is a smart mobile application that group 48 worked to help students or even local Corvallis people to find all events happened in this community and give the detailed information on this application. This mobile application will be developed on both IOS and Android platform in different developing language and a specific IDE before implementing. Group 48 also plan to create a website which is used for computer browser. In this article, there will be provided three main possible technologies which group 48 needs to use in developing the campus events application.
+    
+    \vspace{0.8cm}
+    \vfill
+    
+\begin{center}    
+    Nov 12, 2017
+
+\end{center}
+\end{titlepage}
+
+
+\tableofcontents
+\newpage
+
+
+
+\section{Role in project}
+The role I play in this team could be changed since every part of the work is not decided yet and it is depends on the progress of each works. In the initial plan, our team will focusing on the development of front-end and we need to use a lot of time working on that. I will be responsible for the developing of IOS platform since I have the resources to create a space building this platform. Also, I will search some ways to help us developing the scan function in our mobile application because our client David want this application should be convenient for user in having some functions like that. Moreover, our team decide to create a official website which could make the function to be used on browser and I will be the principal of this website.
+
+%\vspace{0.3cm}
+
+\section{Language for IOS platform application development}
+
+\subsection{Overview}
+For IOS platform, there are some languages which are common in recent years, including Objective-C, Swift. Also, some mainstream programming languages can build an IOS application like Python. In this section, we will discuss these developing languages and choose one to use for our campus event mobile application on IOS platform.
+
+\subsection{Criteria}
+For choosing programming language, the criteria of our team is use the most effective and easy way to build a develop an useful and popular campus events mobile application. 
+
+\subsection{Potential Choices}
+
+\subsubsection{Objective-C}
+Objective-C is the primary programming language for both IOS and OS X software platform. People are familiar with it since this programming language is a superset of the programming language C and provides object-oriented capabilities and a dynamic runtime. Objective-C inherits a lot of features from C language like syntax, primitive types, and flow control statements and adds defining classes and methods in syntax. Also, it adds language-level support for object graph management and object literals while providing dynamic typing and binding, deferring many responsibilities until runtime. [1] Because C language is a very common language which is used in many of software development, also Objective-C is include C language and it is easy to learn since the syntax is small and like to C, this language is used to primary programming in IOS platform. 
+
+\subsubsection{Swift}
+Swift is a language which developed by Apple and it is the latest language for software developing on IOS, OS X and WatchOS. It is used to replace earlier C or Objective-C code-bases with its various system architectures because it has been created the newest modern features and developed completed open-source for developer. Swift is much easier than Objective-C on daily developing with a safer programming patterns and it is interactive for developer since swift has a tool called playgrounds which could test code on the spot without compiling big pieces of it or creating the whole app. [2]
+
+\subsubsection{Python}
+Python as the widely-used programming language is be used on many of developing program. For this language, the advantages which compare with other widely-used languages like Java, C, or C++ are the focusing on code readability and the syntax which have the the clear and easy-write features. 
+
+\subsection{Discussion}
+Above all the three programming languages, we think the first thing is that we could exclude for using Python as our developing language since Python is not a very effective language in IOS platform than other two. In other two languages, we prefer using Swift as our developing language since it is easier for developer and it has more effective and stronger function for us than objective-c.
+
+\subsection{Conclusion}
+After introducing and comparing with these three kind of languages, our team find the best programming language for developing the IOS platform.
+
+
+\section{Scan function}
+
+\subsection{Overview}
+In our application in each platforms, David wants to add some new functions to make our application more useful. The scan function is the first thing we are now thinking about. In lots of successful mobile applications, they all have the scan function which could used in payment, registration and lots of ways. David wants to make our application more useful in campus during events such like football games or giving extra credit on class.
+
+\subsection{Criteria}
+To achieve the function which could be used in our app, we need to think about the technology which could build the scan function and run it successfully. The criteria of this section is try to make the function running success and stable.
+
+\subsection{Potential Choices}
+
+\subsubsection{React-qr-reader}
+React-qr-reader is the meaning of a react component which could using the webcam to read the QR codes. It is using WebRTC standard to read data from webcam, and jsQR is using for detect data from QR codes. To optimise the speed and experience, a web-worker is used to offload the heavy QR code algorithm on a separate process. Also, the web worker is inlined and loaded on creation of the component.[3] The only disadvantage for this component, it could just uses for read QR codes but no bar codes. 
+
+\subsubsection{Bar code detector on Mobile Vision API}
+Mobile Vision API is a new computer vision algorithm which could be used on developing mobile application on both IOS and Android platform. The benefit of this API is it could works on the device which is in the situation of low latency, no network access. It has a powerful function such like FaceAPI, TextAPI and BarcodeAPI, but what we want to use is just the BarcodeAPI which could read bar code and QR code. 
+
+\subsubsection{React-native-barcodescanner}
+React-native-barcodescanner is also a react component which could read and scan barcode by using the webcam. This component have the same function with the React-qr-reader but it could works on both IOS and Android platform stable by using less syntax in JavaScript. We also have some resources to learn how could we use to build our own scan function in our application. It is a good component for us to develop the scan function.
+
+\subsection{Discussion}
+Our client David think React-native-barcodescanner seems very nice in bar code method, but Mobile Vision API is also a good resource we can use since it is powerful. In our team, if we want to make the scan function stable, we can use Mobile Vision API. If we want to make it in  an easier way, we can use React-native-barcodescanner. It depends on what we will discuss in meeting with our client in the future. But for React-qr-reader, since it just has the function to read QR codes, it will not be satisfied with our team.
+
+\subsection{Conclusion}
+Since our team has not decided what should we use for scan function yet, we will choose React-native-barcodescanner or Mobile Vision API after we decide.
+
+
+\section{Website for computer browser}
+
+\subsection{Overview}
+Group 48 is planning to create a website to be the official website of campus events mobile application or create an application used in computer browser. To create a website, we need to use HTML 5, CSS and JavaScript as the programming languages.
+
+\subsection{Criteria}
+To create a wonderful website, we must grasp the languages which are used in building website skilled. Also, learning successful popular website such as Twitter is other thing we should do.
+
+\subsection{Potential Choices}
+
+\subsubsection{HTML 5}
+HTML 5 is a mockup language that is used in create a world-wide web. Every website all over the world are created by HTML 5 so that HTML 5 can be the base of the world-wide web. For developer, it is easy to learn HTML 5 because of the small syntax and easy programming logic. Moreover, every browser all over the world can support HTML 5 since it is the mainstream language.
+
+\subsubsection{CSS and JavaScript}
+CSS and JavaScript are two languages which based on HTML 5 especially for CSS. CSS is a programming language which is used to add different style on HTML 5. It can change the style of word, format, form and color for HTML 5. JavaScript is a programming language which is used to make webpages interactive and provide online programs. Same as CSS, it is also a very important language of world-wide web content production. 
+
+\subsubsection{PHP}
+PHP is a widely-used open source server-side scripting language which is suited for web development and it can be embedded into HTML5.[4] PHP allows web developer to develop dynamic website and it is run on the server of website mostly. It is the language which could not be short of in development of web.
+
+\subsection{Discussion}
+Since all these four languages above are very important for creating a good website, our team will use all of these languages for website building.
+
+\subsection{Conclusion}
+Group 48 will choose all languages introduced above to develop our website.
+
+
+\section{Reference}
+[1] "Programming with Objective-C" [online] 
+Available: https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html
+
+[2] Maria Kuz, 17 Mar, 2016. "7 Advantages of using Swift over Objective-C" [online] Available: https://mlsdev.com/blog/51-7-advantages-of-using-swift-over-objective-c
+
+[3] "React-qr-reader" [online] 
+Available: https://www.npmjs.com/package/react-qr-reader
+
+[4] "What is PHP?" [online]
+Available: http://php.net/manual/en/intro-whatis.php
+\end{document}
