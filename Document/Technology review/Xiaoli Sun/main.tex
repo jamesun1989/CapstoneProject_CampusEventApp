@@ -1,0 +1,210 @@
+\documentclass[letterpaper, 10pt,titlepage]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage [english]{babel}
+\usepackage [autostyle, english = american]{csquotes}
+\usepackage{graphicx}                                        
+\usepackage{amssymb}                                         
+\usepackage{amsmath}                                         
+\usepackage{amsthm}                                          
+\usepackage{alltt}                                           
+\usepackage{float}
+\usepackage{url}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+\usepackage{pst-gantt}
+\usepackage[letterpaper, margin=0.75in]{geometry}
+\usepackage{balance}
+\usepackage[TABBOTCAP, tight]{subfig}
+\usepackage{enumitem}
+\usepackage{pst-tools}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks = true,
+  linkcolor  = black
+}
+\usepackage{listings}
+\usepackage{color}
+ 
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+ 
+\lstset{style=mystyle}
+\renewcommand\refname{\centering Works Cited}
+
+
+
+
+\setcounter{secnumdepth}{4}
+\def\name{Xiaoli Sun}
+
+\hypersetup{
+  colorlinks = true,
+  urlcolor = black,
+  pdfauthor = {\name},
+  pdfkeywords = {Problem Statement},
+  pdftitle = {Capstone Project},
+  pdfsubject = {Capstone Project},
+  pdfpagemode = UseNone
+}
+
+
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+    \Huge
+    \textbf{Technology Review and Implementation Plan}\\
+    \textbf{Capstone Project}\\
+    \vspace{1.0cm}
+    \large
+    Author: Xiaoli Sun\\
+    \large
+    Client: David Vasquez\\
+    \vspace{1.5cm}
+    \large
+    Instructor: D. Kevin McGrath, Kirsten Winters\\
+
+    \large
+    CS 461, Fall 2017, Oregon State University\\    
+
+    \vspace{3.2cm}
+
+    \large
+    \underline{Abstract}\\
+    \vspace{0.3cm}
+    \end{center}
+    \large
+
+    \tab The campus events mobile application will provide students and community a neat and organized place to find all the events around campus. This application will retrieve data from various groups around the community and display the information on your phone. This mobile application will be developed for Android mobile platform. The developing language and IDE must be discussed before implementing. Moreover, secure login is an important way for this application to prevent users' information begin stolen. This document outlines the possible technologies that will be used to address problems in three major sections.
+    
+    \vspace{0.8cm}
+    \vfill
+    
+\begin{center}    
+    Nov 12, 2017
+
+\end{center}
+\end{titlepage}
+
+
+\tableofcontents
+\newpage
+
+\section{Potential languages for Android application development}
+
+\subsection{Introduction}
+One of the platforms that we will design on is Android. Most of the Android application nowadays are written in Java-like language including Java and JavaScript. Besides these two languages, Android application can also be developed using C/C++. In this section, we will discuss what potential language can we use for Android application development. \\
+
+\subsection{Criteria}
+Our project will be released for both Android and iOS version. For Android development, the language that we choose will mainly based on whether it could be implemented cross platform or not. In addition, languages that fail to support cross-platform implementation will also be considered as a backup option.\\
+
+\subsection{Solution 1:Java} 
+The first solution is Java. Why are most Android application are developed in Java? Because Java is one of the most popular programming languages in computer science, there are many developers already proficient in using Java. Comparing to C/C++, Java doesn’t have pointer arithmetic so that it’s easier to develop an application using Java. As we all know, Android applications can be run on cellphones with different manufacturers like Google, Samsung, HuaWei, LG, etc. Since Java runs in a VM, it will not have a compatibility problem when run on phones. Moreover, comparing to other languages, Java has many libraries and tools which could make application development easier. For safety, Java could protect user’s phone from memory leaks or bad pointer usage. A sandbox application and a security model will be created to avoid attacking by malware or bad applications.\cite{java}\\
+
+
+\subsection{Solution 2: JavaScript}
+The second solution is JavaScript and this is the technology that we will use in our project. Unlike Java, if a developer wants to build apps use JavaScript, a native WebView wrapper should be created first. A JavascriptAdapter with some JavaScript method in it allow users access the application. Moreover, a framework like Appcelerator or PhoneGap is popular to use when a developer tries to write an app in Android using JavaScript. In our project, we will write JavaScript code for our project and then using a tool called React Native to convert the code to Android and iOS version.\\
+
+
+\subsection{Solution 3: C/C++}
+The third option is using C/C++. There are several advantages using C/C++ for Android development. The first one is that C/C++ is somewhat faster than Java and JavaScript. Java source code will take several steps to be compiled to machine code. It will be first compiled to bytecode and stored in .jar files. Then the JVM will compile the .jar file to machine code. Comparing to Java, C/C++ will not be taken such steps above so that it may be faster than Java. The second advantage is that developers can use Visual Studio to write C/C++ code for Android development. Visual Studio contains tons of useful tools for C/C++ development so that developers don’t need to switch another platform to use another tool. Finally, Android NDK support C/C++ and it works the same as Android SDK, developers don’t need to worry about whether C/C++ is supported by Android or not. Meanwhile, there are also some shortcomings for using C/C++. It will have security issues like memory leaking and bad pointer usage. In addition, C/C++ can’t use as many APIs as Java can use. Most of APIs are Java only.\cite{c++}\\
+
+\subsection{Comparison}
+Now let's compare the three languages that I discussed before. The main advantage of Java is that it is the native language for Android so that a lot of APIs can only be used by Java, the application developed by Java also run faster than other languages. Comparing to C/C++, Java is more security than C/C++. The disadvantage of Java is that it doesn't support cross platform implementation. The advantage of JavaScript is that it support cross platform implementation. But the application developed by JavaScript will run slower than Java. The main advantages of C/C++ is that the applicaton may run as fast as JavaScript and faster than JavaScript. The shortcoming is that the application will have security issues.\\
+
+\subsection{Conclusion}
+After I discussed these three languages, we decided to use JavaScript to implement our project. JavaScript not only support the same APIs as Java, but also support cross platform implementation which could decrease the difficulties and time for developing the product.\\
+
+
+\section{Notification Push}
+
+\subsection{Introduction}
+Notification push is a very important function in our project. If this function works perfectly, users will get notification of upcoming events and no need to worry about missing them. In this section, I will introduce three technologies of notification push and one of the three technologies will be used in our project. The three technologies that I will discuss is: Android 7.0 or 8.0 API, Google Cloud Message and Google calendar.\\
+
+\subsection{Criteria}
+Since notification is a very important function in our app, we will choose technologies for notification push according to the following principle: stability, how fast the notification will show on screen and how complicated to implement it.\\
+
+\subsection{Solution 1: Firebase Cloud Messaging}
+Firebase Cloud Messaging(FCM) is a new version of Google Cloud messaging. Developers are allowed to send two types of messages: notification messages and data messages. For sending notification message, developers could use Admin SDK or the FCM Server Protocols to set the notification key first, and then use the notifications composer to build the content and send it to users. For data message, developers could use the Admin SDK or the Server Protocols to set the data key only because data messages will be processed by application itself. When the application is in the background, the notification will be sent to the notification tray. When in forground, onMessageReceived() funtion could be used to process messages. Data message will be received by using the function onMessageReceived() as well.  \cite{firebasecloudmessage}\\
+
+\subsection{Solution 2:Google Cloud Message}
+The second options for notification push in our application is to use Google Cloud Message(GCM). GCM is a mobile notification service that allow developers send notification from developers' server to third-party applications on Android mobile operating system or on Google Chrome. GCM use Google SDKs and server APIs. Application is need to register for GCM before using GCM services. During the registraion process, GCM will issue a GCM Registration ID to the device that send a request. The ID will be sent to developers' server as well. When developers want to send a notification to a event, an API POST request will be sent to GCM Authentication Service. After the request is authenticated successfully, the GCM Authentication Service will return a token. Then the ID will be sent to GCM service and device.\cite{googlecloudmessage}\\
+
+
+\subsection{Solution 3:Google Calendar}
+The third option is to use Google calendar. Now many people like use Google Calendar to arrange their future plan. Google Calendar API do support for reminders and notifications. However, Google Calendar API doesn't support pop-up notification for third party application. All notifications including event creation, change and cancellation can only be sent via Email and SMS. This option is our last choice, we will use Google Calendar unless the other two options all failed.\cite{googlecalendarapi}\\
+
+\subsection{Comparison}
+Comparing to GCM, FCM simplifies the application development. No registration is required. It also contains Firebase Notifications which is a web console so that it;s convenient for developers to test the function in the console. Some new client side features also support FCM SDK only. Comparing to FCM AND GCM, Google Calendar API don't have distinct advantages, the most serious issue for Calendar API is that it doesn't support pop-up notification on mobile applications.\\
+
+\subsection{Conclusion}
+After comparing the three notification push technologies, it's obvious that our group will choose either FCM or GCM as our first options since both GCM and FCM all support data message and notification message as notification. Since FCM simplifies implementation, we tend to choose FCM.\\
+
+\section{Secure Login}
+
+\subsection{Introduction}
+In this section, we are going to provide solutions that allow user login in to the application safely. Privacy information security is always a big issue in application developing. With some good technologies like OAuth 2.0, user’s personal information will have a more complete protection. We will use one of the following technology as secure login in our application. \\
+
+\subsection{Criteria}
+The principle that we used to measure what technology we will use for secure login in our application depends on how security the technology is and how complicated if we implement on project.
+
+
+\subsection{Solution 1: OAuth 2.0}
+The first option that we will use for secure login is called oAuth 2.0. The basic OAuth 2.0 protocol flow is showed as below: 
+\begin{enumerate}
+\item Users will be asked to enter user name and password before login. 
+\item After users enter user name and password, the application will receive an authorization grant and begin to request an access token from server. 
+\item If the application identity and authorization grant is valid, API server will issue an access token. 
+\item The application then could use the access token to request information from API server. 
+\item If the access token is valid, the application will retrieve information from server as JSON strings.
+\end{enumerate}
+Moreover, the application must be registered to the service’s website before using OAuth 2.0. For example, if a developer wants to develop an application with a function like “Sign in with Twitter”, he needs to create an application in https://apps.twitter.com/. Once the application is successfully created, the developer will get a consumer key (API key) and consumer secret (API secret). The consumer key is used to build authorization URLs.  When a user’s account is accessed, the consumer secret is used to identify the application to service API. Authorization grant has four types: authorization code, implicit, resource owner password credentials and client credentials. \cite{OAuth2}\\
+
+
+\subsection{Solution 2: Auth0} 
+The second option is Auth0. Auth0 is a service that allow developers add different authentication methods to application including customer credentials, social network logins, passwordless systems(fingerprint) and so on. Auth0 use a protocol called OpenID Connect (OIDC) which is designed based on OAuth2.0 specification. Unlike OAuth2.0, OIDC allow user login to multiple sites by a single login. Once a user’s information is authenticated by Google, Google will send user information back to Auth0 in a JSON Web Token (JWT), it is also called ID token. ID token is used to get user information, it is composed of three parts: a header, a body and a signature. The header contains token type and a hash algorithm. The body contains identity claims (user’s email, name, etc.) about a user. A signature is used to identify the completeness of the information in the JWT. The work flow of this protocol is: 
+\begin{enumerate}
+\item After user enter password and username and sign in with Auth0, Auth0 will send a request to Google.
+\item Google will authenticate users’ credential. 
+\item Google will send back ID token and access token to Auth0 once authorized. 
+\item Now Auth0 can use ID token to get user information or use access to get information from Google API.
+\end{enumerate}\cite{OIDC}\\
+
+
+\subsection{Solution 3: third party login}
+The third solution is to use a third-party login like “Sign in with Facebook” or “Sign in with Twitter”. Since these third-party login methods are all use secure login technologies like OAuth2.0. If we use this solution, users’ information could be protected well. \\
+
+\subsection{Comparison}
+Comparing to OAuth 2.0 and Auth0, they use almost the same work flow but only a few differences which means both of these two technologies have the same security level. However, OAuth 2.0 is the most popular technologies that used for secure login. Most third party login use OAuth 2.0 as well, like twitter. However, our project will only allow user enter onid and password, so we will not use third party login.
+
+\subsection{Conclusion}
+As I mentioned before, our project will only allow user enter onid and password. We will elinimate third party login. We will use OAuth 2.0 because it's more popular than Auth0 and also has good security.
+
+\vspace{0.5cm}
+
+\newpage
+
+\bibliography{reference,IEEEabrv}
+\bibliographystyle{IEEEtran}
+
+
+\end{document}
