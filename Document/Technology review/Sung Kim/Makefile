@@ -19,6 +19,8 @@ ps:	dvi
 dvi:
 	latex ${filename}
 	bibtex ${filename}||true
+	bibtex ${filename}||true
+	bibtex ${filename}||true
 	latex ${filename}
 	latex ${filename}
 

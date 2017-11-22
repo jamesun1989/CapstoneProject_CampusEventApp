@@ -1,8 +1,8 @@
 \documentclass[onecolumn, draftclsnofoot,10pt, compsoc]{IEEEtran}
 \usepackage{url}
 \usepackage{setspace}
-
 \usepackage{geometry}
+
 \geometry{textheight=9.5in, textwidth=7in}
 
 % 1. Fill in these details
@@ -72,7 +72,7 @@
 
 \section{Role in project}
 
-Throughout this project, my role will change depending on what needs to be done. A majority of the time I will play as the database administrator with our client David Vasquez to properly manage and manipulate the database. As a database administrator, I will help create the database architecture that is easy to follow and maintain. Depending on how fast the application is completed, the team will move on to developing an administrator website. Everyones role after this would be switched to web developer.
+Throughout this project, my role will change depending on what needs to be done. A majority of the time I will play as the database administrator with our client David Vasquez to properly manage and manipulate the database. As a database administrator, I will help create the database architecture that is easy to follow and maintain. Depending on how fast the application is completed, the team will move on to developing an administrator website. Everyone's role after this would be switched to a web developer.
 
 % Piece One
 \section{Database}
@@ -87,23 +87,23 @@ The mobile application will be grabbing information from a database and presenti
 \subsection{Potential Choices}
 \subsubsection{MySQL}
 
-MySQL is an open-source database management system created back in 1995. Many companies still use this tool today, such as Uber and Pinterest. You can set up various rules for the database that will help manage and manipulate each table. We chose this software because our client has already set up a MySQL database for the application we are creating. Another reason to use this tool is a powerful feature called joining. Joining combines information from two or more tables into one, which we will need for this application.
+MySQL is an open-source database management system created back in 1995. Many companies still use this tool today, such as Uber and Pinterest. You can set up various rules for the database that will help manage and manipulate each table \cite{MySQL}. Another reason to use this tool is a powerful feature called joining. Joining combines information from two or more tables into one, which we will need for this application. This tool was taken into consideration because our client has already set up a small MySQL database for the application.
 
 \subsubsection{MongoDB}
 
-MongoDB is an open-source NoSQL database. NoSQL databases are great for storing large amounts of data without having to worry about any type of structure. Another useful feature that comes with the use of NoSQL databases includes the ability to handle large amounts of manipulation within a database.
+MongoDB is an open-source NoSQL database. NoSQL databases are great for storing large amounts of data without having to worry about any type of structure. They store data fields and values together into one record, which makes data retrieval faster \cite{MySQLvsMongo}.
 
 \subsubsection{Amazon Aurora}
 
-The Amazon Aurora is a relational database engine designed for the cloud. This tool is compatible with both MySQL and PostgreSQL databases.The speed of the tool is what really stands out and according to the website "Aurora is up to five times faster than standard MySQL databases and three times faster than standard PostgreSQL databases."
+The Amazon Aurora is a relational database engine designed for the cloud. This tool is compatible with both MySQL and PostgreSQL databases.The speed of the tool is what really stands out and according to the website, "Aurora is up to five times faster than standard MySQL databases and three times faster than standard PostgreSQL database \cite{Amazon}."
 
 \subsection{Discussion}
 
-When making a decision between these three products, it came down to a decision between a relational and NoSQL database. Relational databases handle small amounts of manipulation very well compared to a NoSQL database that can handle millions at a time. The Evently application does not require millions of changes in a short period of time since these changes will be managed by a group administrator. To add on to the fact, joining tables is a much-needed feature of the project which is a lot simpler in a relational database. As for comparing the relational databases, Amazon Aurora and NoSQL, came down to the cost. Aurora is not an open-source tool, meaning we will have to pay to use this service.
+When making a decision between these three products, it came down to a decision between a relational and NoSQL database. Relational databases are easy to maintain with a wide variety of useful features to help manage your database. NoSQL database can handle high transaction loads because of it's horizontal scaling \cite{MySQLvsMongo}. The application does not require millions of changes in a short period of time since these changes will be managed by a single admin per group. To add on to the fact, joining tables is a much-needed feature of the project which is a lot simpler in a relational database. As for comparing the relational databases, Amazon Aurora and MySQL, came down to the cost. Aurora is not an open-source tool, meaning we will have to pay to use this service.
 
 \subsection{Conclusion}
 
-Of the three products presented, MySQL seems to be the best choice for this application. NoSQL database are too unorganized for the content the application is providing and Amazon Aurora is not free to use. 
+Of the three products presented, MySQL seems to be the best choice for this application. NoSQL database is too unorganized for the content the application is providing and Amazon Aurora is not free to use. 
 
 \clearpage
 % Piece Two
@@ -119,19 +119,19 @@ When using one of these tools, we are looking for something simple and easy to l
 \subsection{Potential Choices}
 \subsubsection{Moqups}
 
-Moqups is a web-based wireframing tool that lets you create user interface designs. It gives you the ability to create functional prototypes with a wide variety of features you can add to the application. Moqups also provides templates for both Android and iOS platforms. The first 300 stencils are free, but can later be upgraded if you sign up with an annual plan.
+Moqups is a web-based wireframing tool that lets you create user interface designs. It gives you the ability to create functional prototypes with a wide variety of features you can add to the application \cite{Moqups}. Moqups also provides templates for both Android and iOS platforms. The first 300 stencils are free, but can later be upgraded if you sign up with an annual plan.
 
 \subsubsection{InVision}
 
-Just like Moqups, InVIsion provides users a powerful design prototyping tool. It also allows you to create a functional prototype that you can use to show off the application. The collaboration feature really stands out on this tool. This creates a direct connection between team members and clients to receive comments directly in case something need to be edited. 
+Just like Moqups, InVision provides users a powerful design prototyping tool. It also allows you to create a functional prototype that you can use to show off the application. The collaboration feature really stands out on this tool by creating a direct connection between team members and clients to receive comments directly \cite{invision}. 
 
 \subsubsection{Wireframe.cc}
 
-Wireframe.cc provides a more simple interface for creating mock ups. Works like a sketchbook/paint that provides basic things like scroll bars and text boxes for you to add onto your template. It gives you the option to change what type of device you are on, such as a web browser or on your phone.  
+Wireframe.cc provides a more simple interface for creating mock ups. Works like a sketchbook/paint that provides basic things like scroll bars and text boxes for you to add to your template \cite{wireframe}. It gives you the option to change what type of device you are on, such as a web browser or on your phone.  
 
 \subsection{Discussion}
 
-Wireframe.cc was a little too simple. Compared to Moqups and InVision, the number of features was lacking. The reason Moqups and Invision stood out the most is that of their ability to create functional prototypes. Preparing a live demo for your client provides more value to the them, and you will receive a more appropriate response to what needs to be added or edited. When comparing Moqups and InVision, InVision seems like it's the way to go. More reputable companies and have gone and commented on Invision, companies like Twitter, Uber, and Nike have stated how creating these design beforehand make them great goals to work towards. 
+Compared to Moqups and InVision, wireframe.cc was a little too simple for what needed to be done. The reason Moqups and Invision stood out the most is that of their ability to create functional prototypes. Preparing a live demo for your client provides more value to them, and you will receive a more appropriate response to what needs to be added or edited. When comparing Moqups and InVision, InVision seems like it's the way to go. More reputable companies and have gone and commented on Invision. Companies like Twitter, Uber, and Nike have stated how creating these designs beforehand make them great goals to work towards. 
 
 \subsection{Conclusion}
 
@@ -150,23 +150,23 @@ The key component we are looking for is the ability to develop an application on
 
 \subsection{Potential Choices}
 \subsubsection{React Native}
-React native is a JavaScript framework for writing native applications. With this framework, you can create applications for both Android and iOS based on the same codebase. This framework is based on the React JavaScript library. The difference between the two is that React Native is used for building mobile applications. Some companies that use this framework for their application include Facebook, Instagram, and Tesla.
+React Native is a JavaScript framework for writing native applications. With this framework, you can create applications for both Android and iOS based on the same codebase. This framework is based on the React JavaScript library \cite{react}. The difference between the two is that React Native is used for building mobile applications. Some companies that use this framework for their application include Facebook, Instagram, and Tesla.
 \subsubsection{Iconic}
 
-Iconic is an HTML5 mobile application framework used to write hybrid applications. Hybrid applications are essentially websites on a mobile platform. Iconic can be styled to make the application look like a native application. Development in this framework can also be achieved using CSS or JavaScript regardless of the operating platform. 
+Iconic is an HTML5 mobile application framework used to write hybrid applications. Hybrid applications are essentially websites on a mobile platform. Iconic can be styled to make the application look like a native application. Development in this framework can also be achieved using CSS or JavaScript regardless of the operating platform \cite{iconic}. 
 \subsubsection{PhoneGap}
 
-Another hybrid application development framework, PhoneGap, usually isn't paired by itself. This framework uses the Cordova plugins to connect applications to native API's. Some examples of native API's include GPS, camera, notifications, etc.
+Another hybrid application development framework, PhoneGap, usually isn't paired by itself. This framework uses the Cordova plugins to bridge together websites and mobile devices \cite{phonegap}. Some examples of native API's include GPS, camera, notifications, etc.
 
 \subsection{Discussion}
 
-The Iconic and PhoneGap frameworks are usually paired together to make the application look and feel like a native app. In contrast, React Native will create applications very similar to native applications, which will have access to more of the native features without restriction. Native applications usually performs better than their hybrid counterparts but can be harder to implement.
+The Iconic and PhoneGap frameworks are usually paired together to make the application look and feel like a native app \cite{iconic}. In contrast, React Native will create applications very similar to native applications, which will have access to more of the native features without restriction. Native applications usually perform better than their hybrid counterparts but can be harder to implement.
 \subsection{Conclusion}
 
 The React Native framework provides us a bit more of a challenge when developing the application, but the challenge is well worth it since we are creating a better performing app. We decided to stick with the React Native framework to gain more experience with the technology.
 
 \clearpage
-\section{References}
-
+\bibliographystyle{IEEEtran}
+\bibliography{references}
 
 \end{document}
