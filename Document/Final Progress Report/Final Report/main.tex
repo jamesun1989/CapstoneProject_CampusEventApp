@@ -1,0 +1,193 @@
+\documentclass[letterpaper, 10pt,titlepage]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage [english]{babel}
+\usepackage{graphicx}                                        
+\usepackage{amssymb}                                         
+\usepackage{amsmath}                                         
+\usepackage{amsthm}                                          
+\usepackage{alltt}                                           
+\usepackage{float}
+\usepackage{url}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+\usepackage[letterpaper, margin=0.75in]{geometry}
+\usepackage{balance}
+\usepackage[TABBOTCAP, tight]{subfig}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks = true,
+  linkcolor  = black
+}
+\usepackage{listings}
+\usepackage{color}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+ 
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+ 
+\lstset{style=mystyle}
+
+
+
+
+\setcounter{secnumdepth}{4}
+\def\name{Sung Kim, Xiaoli Sun, Zijian Huang}
+
+\hypersetup{
+  colorlinks = true,
+  urlcolor = black,
+  pdfauthor = {\name},
+  pdfkeywords = {Progress Report},
+  pdftitle = {Capstone Project},
+  pdfsubject = {Capstone Project},
+  pdfpagemode = UseNone
+}
+
+
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+    \Huge
+    \textbf{Progress Report}\\
+    \textbf{Capstone Project}\\
+    \vspace{1.0cm}
+    \large
+    Developers: Zijian Huang, Sung Kim, Xiaoli Sun\\
+    Sponsor: David Vasquez\\
+    \vspace{1.5cm}
+    \large
+    Instructor: D. Kevin McGrath, Kirsten Winters\\
+
+    \large
+    CS 461, Fall 2017, Oregon State University\\    
+
+    \vspace{3.2cm}
+
+    \large
+    \underline{Abstract}\\
+    \vspace{0.3cm}
+    \end{center}
+    \large
+
+    \tab There are many of events happened in OSU everyday, it is necessary to develop a mobile application to notify student or even the residents who live in Corvallis what event we have today. Group 48 is going to develop this mobile application for both IOS and Android platforms to bring people convenience. To achieve the success of this application, our team plan to use some major functions to make the application useful. Also, we will develop the secure login to make sure every user have their own information and save it in our database. In this report, we are going to show the detail about the progress in developing this project in recent ten weeks, and the plan for next few weeks in the second senior design class.  
+    
+    \vspace{0.8cm}
+    \vfill
+    
+\begin{center}    
+    Dec 3, 2017
+
+\end{center}
+\end{titlepage}
+
+\section{Progress report}
+The Oregon State University community is filled with various organizations that hosts multiple events every year. These events can range from large public events such as Football games to smaller career related events such as the Oregon State Fall Career Expo. To expand the number of participants and to get the Corvallis community more involved, Evently will host multiple group events to be displayed to the public. The mobile application will display an interactive calender that will provide the users a way to keep track of all the events they want to see. Also, the users will have access to discover new groups that they can follow and participate with. To ensure user privacy, a secure login will be implemented. This application will reach out to anyone in the Corvallis community looking for something to do. Development of this application will start during Oregon States Universities Winter term, while the developers are taking classes. The time frame to complete this application is approximately three months. Since Evently is not a native OSU application, it will not be branded with the OSU logo. To ensure the application reaches a large audience, Evently will be available for both Android and IOS.
+
+As we are now, we have completed the first couple months of this 9-month project. Our documentation is in order and David has given us his approval to start development of the application. Over the next couple weeks, the group will set up their development environments and start actual development around the beginning of January. We will still be in contact with David while some of the group will go home for the holiday. 
+
+Some issues that the team ran into when planning out this project include setting up LaTex, properly designing the database and minimizing costs by using an many open-source tools as possible. A smallest issue this group faced was setting up LaTeX. Making sure the documentation style was in IEEE, formatting everything properly and making sure our Makefile worked whenever we completed a document. This issue was quickly resolved by working together on documentation and seeing examples provided by instructors. As for designing the database, we needed to ensure the tables were normalized so that is was easy to follow, and quick to sort and manage.
+
+We began our project design and development from week three during our second meeting with our client, David Vasquez. In this meeting we went over how the user interface should look in more detail. David informed us the application should be developed with four tab interface for the general user. The landing page should have a simple and secure login. Week three was the first time for us to meet with our teaching assistant, Junki, who gave us useful information on problem statement and requirement document. During the rest of this week, we revised rough draft of problem statement. 
+
+Our team was going to dealing with the final draft of problem statement at week four. We started with a online meeting to discuss how would we work on this statement, then we worked for each part and combined it together as the first draft and show it to our client David. When we got a positive feedback, we were moving to the week five.
+
+In week five, we were working on requirement document. When we were preparing this document, there have some small issues which our group facing with like how should we divide three parts to write and the Gantt Chart. By Junki's advise, these issues were fixed by our group. Also, we met with David and talk about the problem statement Friday and finished the statement at the same time.
+
+During week six, we were going to finalize requirement document. Junki provided useful information about how final requirement look like on weekly meeting. After client requirement document was finished at November first, we sent it to David for client confirmation.  
+
+Week seven began with online research of technologies that we would potentially use in the application. Later in the week seven we began to write individual technology review document and finished writing the document during week eight.
+
+In week nine we planned to thinking about how to write design document during Thanksgiving holiday. 
+
+Week ten was spent entirely on finishing our design document and final progress report. We finished design document and uploaded it to both OneNote and Github on Dec first. At the rest of week ten, each group member made an individual slides and then combined them to group slides. Final progress report and group presentation was also completed during this time period. 
+
+
+
+
+\section{Table}
+\begin{tabular}{|p{0.3\linewidth}|p{0.3\linewidth}|p{0.3\linewidth}|}
+\hline
+\centering Positives &
+\centering Deltas &   
+\centering Actions \tabularnewline
+\hline
+-Communication between team has been frequent and precise. 
+
+\vspace{0.2cm}
+
+-Each team member has their own individual jobs clearly and the skill each members have are fit perfectly in this project& 
+
+-Work should be done in a timely manner and not left to finish close to the deadline.& 
+
+-Should plan the future tasks earlier to make sure group can finish work without worry.
+\tabularnewline
+\hline
+\end{tabular}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
