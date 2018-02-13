@@ -1,19 +1,18 @@
 import React, { Component } from "react";
-import { StatusBar } from "react-native";
+import { StatusBar, TouchableOpacity } from "react-native";
 import { StackNavigator, TabNavigator, DrawerNavigator } from "react-navigation";
 import { Icon, Tabs, Tab, Button, Header, Title, Content, Footer, FooterTab, List, ListItem, Thumbnail, Text, Body } from 'native-base';
 
 import CalendarView from "CampusEventApp/src/HomeScreenTab/CalendarView.js";
 import Grid from "CampusEventApp/src/HomeScreenTab/GridView.js";
 import ListView from "CampusEventApp/src/HomeScreenTab/ListView.js";
-import SideBar from "./SideBar.js"
 
 const MainEventNavigation = TabNavigator ({
   CalendarView: {
     screen: CalendarView,
-    navigationOptions: {
+    navigationOptions: ({navigation}) => ({
       tabBarIcon: <Icon ios="ios-calendar" android="md-calendar" />
-    }
+    })
   },
   GridView: {
     screen: Grid,
@@ -40,19 +39,63 @@ const MainEventNavigation = TabNavigator ({
     },
     activeTintColor: 'tomato',
   },
-  animationEnabled: true,
-  swipeEnabled: true,
+  animationEnabled: false,
+  swipeEnabled: false,
+  lazyLoad: false,
+  scrollEnabled: true
 });
 
+/*const DrawerEvents = DrawerNavigator({
+  DrawerEvents: { screen: MainEventNavigation }
+},
+{
+  drawerWidth: 300,
+  drawerPosition: "right",
+  navigationOptions: ({navigation}) => ({
+    title: "Menu",
+    headerStyle: {
+      backgroundColor: "#ffffff"
+    },
+    headerTitleStyle: {
+      color: "000000"
+    },
+    headerRight:
+    <SideBar
+    onPress={() => {
+      if(navigation.state.index === 0){
+        navigation.navigate("DrawerOpen");
+      }else{
+        navigation.navigate("DrawerClose");
+      }
+    }
+  }
+  />
+    /*headerRight:
+    <TouchableOpacity
+    transparent
+    style = {{ paddingHorizontal: 20 }}
+    onPress={() => {
+      if(navigation.state.index === 0){
+        navigation.navigate("DrawerOpen");
+      }else{
+        navigation.navigate("DrawerClose");
+      }
+    }}
+    >
+    <Icon ios='ios-menu' android="md-menu" style={{fontSize: 40, color: "white"}}/>
+    </TouchableOpacity>
+})
+});*/
 
 
-const StackEvents = StackNavigator ({
-  StackEvents: {
+
+const Events = StackNavigator ({
+  MainEventNavigation: {
     screen: MainEventNavigation
   }
 },
 {
-  navigationOptions: {
+  navigationOptions: ({navigation}) => ({
     title: "My Events",
     headerTitleStyle: {
       textAlign: "center",
@@ -60,27 +103,8 @@ const StackEvents = StackNavigator ({
     },
     headerStyle: {
       backgroundColor: "#ff4d4d"
-    },
-    headerRight:
-      <Button
-      transparent
-      onPress={() => this.props.navigation.navigate("DrawerOpen")}
-      >
-      <Icon ios='ios-menu' android="md-menu" style={{fontSize: 40, color: "white"}}/>
-      </Button>
-  }
-});
-
-const Events = DrawerNavigator({
-  Events: {
-    screen: StackEvents
-  }
-},
-{
-  contentComponent: props => <SideBar {...props} />,
-  drawerOpenRoute: 'DrawerOpen',
-  drawerCloseRoute: 'DrawerClose',
-  drawerToggleRoute: 'DrawerToggle'
+    }
+  })
 });
 
 

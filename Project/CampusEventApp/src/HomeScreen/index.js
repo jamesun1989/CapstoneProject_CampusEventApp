@@ -2,11 +2,10 @@ import React, { Component } from "react";
 import Events from "./Events.js";
 import Discover from "./Discover.js";
 import Following from "./Following.js"
-import SideBar from "./SideBar.js"
 //import NineChat from "./NineChat.js";
 import getTheme from 'CampusEventApp/native-base-theme/components';
 import material from 'CampusEventApp/native-base-theme/variables/material';
-import { TabNavigator, StackNavigator } from "react-navigation";
+import { TabNavigator, DrawerNavigator } from "react-navigation";
 import {
   Button,
   Text,
@@ -69,4 +68,5 @@ const HomeScreen = TabNavigator(
     }
   }
 );
+
 export default HomeScreen;

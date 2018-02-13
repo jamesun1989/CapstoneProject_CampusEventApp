@@ -1,21 +1,18 @@
-import React from "react";
-import { AppRegistry, Image, StatusBar } from "react-native";
-import { Container, Content, Text, List, ListItem } from "native-base";
-export default class SideBar extends React.Component {
-  render() {
-    return (
-      <Container>
-        <Content>
-          <List>
+import React, { Component } from "react";
+import { StatusBar, TouchableOpacity } from "react-native";
+import {Icon} from 'native-base';
 
-          <ListItem
-            button
-            onPress={() => this.props.navigation.navigate("Events")}>
-            <Text>Home</Text>
-          </ListItem>
-          </List>
-        </Content>
-      </Container>
+export default class SideBar extends Component {
+  render() {
+    const { onPress } = this.props;
+    return (
+      <TouchableOpacity
+      transparent
+      style = {{ paddingHorizontal: 20 }}
+      onPress={() => onPress() }
+      >
+      <Icon ios='ios-menu' android="md-menu" style={{fontSize: 20, color: "#ffffff"}}/>
+      </TouchableOpacity>
     );
   }
 }
