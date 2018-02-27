@@ -1,26 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import { Container, Content, Header, Title, Left, Right, Body, StyleProvider } from 'native-base';
+import { StackNavigator } from 'react-navigation';
 //import { getStatusBarHeight } from 'react-native-status-bar-height';
+import SportsScreen from 'CampusEventApp/src/DiscoverScreen/Sports.js';
 
-import getTheme from 'CampusEventApp/native-base-theme/components';
-import material from 'CampusEventApp/native-base-theme/variables/material';
-
-export default class Discover extends React.Component {
+class Discover extends Component {
   render() {
+    const { navigate } = this.props.navigation;
     return (
-      //<StyleProvider style={getTheme(material)}>
       <Container>
-      <Header style={{backgroundColor:"#ff4d4d"}}>
-      <Left style={{ flex: 1}} />
-      <Body style={{ flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Title>Discover</Title>
-      </Body>
-      <Right style={{ flex: 1}}/>
-      </Header>
       <Content>
       <View style={styles.container}>
-        <TouchableOpacity style={styles.button} onPress={()=>{alert("you clicked me")}}>
+        <TouchableOpacity style={styles.button} onPress={()=>{navigate('Sports');}}>
           <Image source={require("CampusEventApp/img/FollowingScreen/sports.jpg")}/>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={()=>{alert("you clicked me")}}>
@@ -37,10 +29,34 @@ export default class Discover extends React.Component {
       </View>
       </Content>
       </Container>
-      //</StyleProvider>
     );
   }
 }
+
+const DiscoverScreen = StackNavigator({
+  DiscoverScn: { screen: Discover,
+  navigationOptions:({navigation})=>({
+    title: 'Discover',
+    headerTitleStyle:{
+      textAlign: 'center',
+      alignSelf: 'center'
+    },
+    headerStyle: {
+      backgroundColor: "#ff4d4d"
+    }
+  })},
+  Sports: { screen: SportsScreen,
+    navigationOptions:({navigation})=>({
+      title: 'Discover',
+      headerTitleStyle:{
+        textAlign: 'center',
+        alignSelf: 'center'
+      },
+      headerStyle: {
+        backgroundColor: "#ff4d4d"
+      }
+    })}
+});
 
 const styles = StyleSheet.create({
   container: {
@@ -62,3 +78,5 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.35,
   },
 });
+
+export default DiscoverScreen;

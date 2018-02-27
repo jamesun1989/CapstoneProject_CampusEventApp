@@ -21,6 +21,7 @@ const HomeScreen = TabNavigator(
     Events: { screen: Events },
     Discover: { screen: Discover },
     Following: { screen: Following }
+    //Profile: { screen: Profile}
   },
   {
     tabBarPosition: "bottom",

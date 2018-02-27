@@ -28,6 +28,7 @@ const MainEventNavigation = TabNavigator ({
   }
 },
 {
+  initialRouteName: "ListView",
   tabBarOptions: {
     showIcon: true,
     showLabel: false,
