@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Events from "./Events.js";
 import Discover from "./Discover.js";
 import Following from "./Following.js"
+import Profile from "./profile.js"
 //import NineChat from "./NineChat.js";
 import getTheme from 'CampusEventApp/native-base-theme/components';
 import material from 'CampusEventApp/native-base-theme/variables/material';
@@ -20,7 +21,8 @@ const HomeScreen = TabNavigator(
   {
     Events: { screen: Events },
     Discover: { screen: Discover },
-    Following: { screen: Following }
+    Following: { screen: Following },
+    Profile: { screen: Profile}
   },
   {
     tabBarPosition: "bottom",
@@ -51,12 +53,12 @@ const HomeScreen = TabNavigator(
               onPress={() => props.navigation.navigate("Following")}
             >
               <Icon ios="ios-add-circle" android="md-add-circle" />
-              <Text>Following</Text>
+              <Text>Follow</Text>
             </Button>
              <Button
               vertical
               active={props.navigationState.index === 3}
-              onPress={() => props.navigation.navigate("")}
+              onPress={() => props.navigation.navigate("Profile")}
             >
               <Icon ios="ios-person" android="md-person" />
               <Text>Profile</Text>
