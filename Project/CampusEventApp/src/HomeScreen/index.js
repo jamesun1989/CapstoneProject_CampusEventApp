@@ -23,8 +23,7 @@ const HomeScreen = TabNavigator(
     Discover: { screen: Discover },
     Following: { screen: Following },
     Profile: { screen: Profile}
-    //Profile: { screen: Profile}
-  },
+    },
   {
     tabBarPosition: "bottom",
     tabBarComponent: props => {
