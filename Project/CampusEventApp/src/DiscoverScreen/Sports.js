@@ -1,0 +1,21 @@
+import React, { Component } from 'react';
+import { Container, Title, Left, Right, Header, Content, List, ListItem, Thumbnail, Text, Body } from 'native-base';
+export default class Sports extends Component {
+  render() {
+    return (
+      <Container>
+        <Content>
+          <List>
+            <ListItem>
+              <Thumbnail square size={80} source={{ uri: 'Image URL' }} />
+              <Body>
+                <Text>Sankhadeep</Text>
+                <Text note>Its time to build a difference . .</Text>
+              </Body>
+            </ListItem>
+          </List>
+        </Content>
+      </Container>
+    );
+  }
+}
