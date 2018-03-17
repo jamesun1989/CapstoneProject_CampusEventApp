@@ -1,57 +1,120 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import GridView from 'react-native-super-grid';
+import {StyleSheet, Platform, View, ActivityIndicator, FlatList, Text, Image} from 'react-native';
 
-export default class Example extends Component {
+export default class GridView extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      isLoading: true
+    }
+  }
+
+  componentDidMount(){
+    return fetch('http://192.168.1.77/EventsList.php')
+    .then((response) => response.json())
+    .then((responseJson) => {
+      this.setState({
+        isLoading: false,
+        dataSource: responseJson
+      });
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+  }
+
   render() {
-    const items = [
-      { name: 'TURQUOISE', code: '#1abc9c' }, { name: 'EMERALD', code: '#2ecc71' },
-      { name: 'PETER RIVER', code: '#3498db' }, { name: 'AMETHYST', code: '#9b59b6' },
-      { name: 'WET ASPHALT', code: '#34495e' }, { name: 'GREEN SEA', code: '#16a085' },
-      { name: 'NEPHRITIS', code: '#27ae60' }, { name: 'BELIZE HOLE', code: '#2980b9' },
-      { name: 'WISTERIA', code: '#8e44ad' }, { name: 'MIDNIGHT BLUE', code: '#2c3e50' },
-      { name: 'SUN FLOWER', code: '#f1c40f' }, { name: 'CARROT', code: '#e67e22' },
-      { name: 'ALIZARIN', code: '#e74c3c' }, { name: 'CLOUDS', code: '#ecf0f1' },
-      { name: 'CONCRETE', code: '#95a5a6' }, { name: 'ORANGE', code: '#f39c12' },
-      { name: 'PUMPKIN', code: '#d35400' }, { name: 'POMEGRANATE', code: '#c0392b' },
-      { name: 'SILVER', code: '#bdc3c7' }, { name: 'ASBESTOS', code: '#7f8c8d' },
-    ];
+    if (this.state.isLoading) {
+     return (
 
+      <View style={styles.ActivityIndicator_Style}>
+
+         <ActivityIndicator size="large" />
+
+       </View>
+
+     );
+
+   }
     return (
-      <GridView
-        itemDimension={130}
-        items={items}
-        style={styles.gridView}
-        renderItem={item => (
-          <View style={[styles.itemContainer, { backgroundColor: item.code }]}>
-            <Text style={styles.itemName}>{item.name}</Text>
-            <Text style={styles.itemCode}>{item.code}</Text>
-          </View>
-        )}
-      />
+      <View style={styles.MainContainer}>
+
+        <FlatList
+
+            data={ this.state.dataSource }
+            renderItem={({item}) =>
+
+                    <View style={styles.GridViewBlockStyle}>
+                    <View style={{flex:1, flexDirection:'column'}}>
+                        <Text style={styles.GridViewTitleStyle} >{item.event_name}</Text>
+                        <Text style={styles.GridViewInsideTextItemStyle} >{item.event_description}</Text>
+                        </View>
+
+                    </View>
+
+          }
+
+        keyExtractor={(item, index) => index}
+        numColumns={2}
+        />
+
+     </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  gridView: {
-    paddingTop: 25,
-    flex: 1,
-  },
-  itemContainer: {
-    justifyContent: 'flex-end',
-    borderRadius: 5,
-    padding: 10,
-    height: 150,
-  },
-  itemName: {
-    fontSize: 16,
-    color: '#fff',
-    fontWeight: '600',
-  },
-  itemCode: {
-    fontWeight: '600',
-    fontSize: 12,
-    color: '#fff',
-  },
+
+MainContainer :{
+
+justifyContent: 'center',
+flex:1,
+margin: 10,
+paddingTop: (Platform.OS === 'ios') ? 20 : 0,
+
+},
+
+ActivityIndicator_Style:{
+
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    position: 'absolute',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 10
+},
+
+GridViewBlockStyle: {
+
+    justifyContent: 'center',
+    flex:1,
+    alignItems: 'center',
+    height: 100,
+    margin: 5,
+    backgroundColor: '#fff'
+
+  }
+  ,
+
+  GridViewInsideTextItemStyle: {
+
+     color: '#000',
+     padding: 10,
+     fontSize: 10,
+     textAlignVertical:'center'
+
+   },
+
+   GridViewTitleStyle: {
+
+      color: '#000',
+      padding: 10,
+      fontSize: 10,
+      textAlignVertical:'center',
+      fontWeight: "bold"
+
+    }
+
 });
