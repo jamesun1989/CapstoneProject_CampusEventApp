@@ -1,20 +1,18 @@
 import React, { Component } from 'react';
 import {StyleSheet, View, Text} from 'react-native';
-import { StackNavigator, TabNavigator } from 'react-navigation';
+import { TabNavigator } from 'react-navigation';
+import { Icon } from 'native-base';
 
-import Events from './ProfileTabs/Events';
+
+import Events from '../HomeScreenTab/ListView';
 import Groups from './ProfileTabs/Groups';
 import Friends from './ProfileTabs/Friends';
-
-var friendNum = 12;
-var groupNum = 2;
-var eventNum = 4;
-
 
 const ProfileNavigation = TabNavigator ({
   MyEvents: {
     screen: Events,
-    navigationOptions: {title: 'My Events'}
+    navigationOptions: {title: 'My Groups'}
+
   },
   MyGroups: {
     screen: Groups,
@@ -43,11 +41,4 @@ const ProfileNavigation = TabNavigator ({
   lazyLoad: false,
   scrollEnabled: true
 });
-
-const Navigator = StackNavigator ({
-  ProfileNavigation: {
-    screen: ProfileNavigation
-  }
-});
-
-export default Navigator;
+ export default ProfileNavigation;
