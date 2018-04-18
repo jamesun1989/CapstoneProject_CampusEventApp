@@ -19,11 +19,8 @@ const fontSize = {
 }
 
 const fontFamily = {
-    extrabold: "RobotoExtraBold",
-    bold: "RobotoBold",
-    medium: "RobotoMedium",
-    regular: "RobotoRegular",
-    light: "RobotoLight"
+    regular: "Roboto",
+    medium: "Roboto_medium",
 }
 
 const padding = 8;
@@ -35,7 +32,7 @@ const tabColor = (Platform.OS === "ios") ? "rgba(73,75,76, .5)" : "rgba(255,255,
 const selectedTabColor = (Platform.OS === "ios") ? "rgb(73,75,76)" : "#fff";
 
 const tabIconStyle = { style: {fontSize: 40, color: '#ffffff'}}
-const navTitleStyle = { fontSize: fontSize.regular , fontFamily: fontFamily.extrabold, color: color.black }
+const navTitleStyle = { fontSize: fontSize.regular , fontFamily: fontFamily.regular, color: color.black }
 
 const tabProps = {
     tabBarPosition: 'bottom',

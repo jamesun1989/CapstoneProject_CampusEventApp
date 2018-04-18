@@ -1,6 +1,6 @@
 import React from 'react';
 import { Scene, Router, ActionConst, Stack, Modal, Tabs } from 'react-native-router-flux';
-import { Icon, Text } from 'native-base';
+import { Icon } from 'native-base';
 
 //Splash Component
 import Splash from '../components/Splash/Splash';
@@ -58,9 +58,9 @@ export default class extends React.Component {
                         <Scene key="ForgotPassword" component={ForgotPassword} title="Forgot Password"/>
                     </Stack>
 
-                    <Stack key="Main" initial={this.state.isLoggedIn}>
+                    <Stack key="Main" hideNavBar initial={this.state.isLoggedIn}>
                     <Tabs key="tabbar" type="replace" showLabel={true} {...tabProps} initial={true}>
-                    <Stack key="Events" title="My Events" tabBarLabel="Events" icon={() => <Icon name="globe" {...tabIconStyle}/>} {...stackProps}>
+                    <Stack key="Events" hideNavBar={false} title="My Events" tabBarLabel="Events" icon={() => <Icon name="globe" {...tabIconStyle}/>} {...stackProps}>
                     	<Tabs key="EventsTabbar" type="replace" {...eventtabProps}>
                     		<Stack key="Calendar" icon={() => <Icon ios="ios-calendar" android="md-calendar" {...eventtabIconStyle}/>}>
                         		<Scene key="CalendarView" component={CalendarView} />
