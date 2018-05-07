@@ -1,22 +1,27 @@
 import React, { Component } from 'react';
-import { Container, Header, Content, List, ListItem, Thumbnail, Text, Body } from 'native-base';
-export default class Event extends Component {
+import {StyleSheet, View } from 'react-native';
+import { StatusBar } from 'react-native'
+
+import Header from './ProfileTab/Header.js';
+import Navigator from './ProfileTab/Navigator.js';
+export default class Profile extends Component {
   render() {
     return (
-      <Container>
+      <View style = {styles.container}>
+
+      <StatusBar hidden={true} />
+
         <Header />
-        <Content>
-          <List>
-            <ListItem>
-              <Thumbnail square size={80} source={{ uri: 'Image URL' }} />
-              <Body>
-                <Text>Sankhadeep</Text>
-                <Text note>Its time to build a difference . .</Text>
-              </Body>
-            </ListItem>
-          </List>
-        </Content>
-      </Container>
+        <Navigator />
+
+
+      </View>
     );
   }
 }
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#FFFFFF'
+  }
+});
