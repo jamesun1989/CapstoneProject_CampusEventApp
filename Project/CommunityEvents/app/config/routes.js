@@ -60,9 +60,9 @@ export default class extends React.Component {
 
                     <Stack key="Main" hideNavBar initial={this.state.isLoggedIn}>
                     <Tabs key="tabbar" type="replace" showLabel={true} {...tabProps} initial={true}>
-                    <Stack key="Events" hideNavBar={false} title="My Events" tabBarLabel="Events" icon={() => <Icon name="globe" {...tabIconStyle}/>} {...stackProps}>
+                    <Stack key="Events" title="My Events" tabBarLabel="Events" icon={() => <Icon name="globe" {...tabIconStyle}/>} {...stackProps}>
                     	<Tabs key="EventsTabbar" type="replace" {...eventtabProps}>
-                    		<Stack key="Calendar" icon={() => <Icon ios="ios-calendar" android="md-calendar" {...eventtabIconStyle}/>}>
+                    		<Stack key="Calendar" hideNavBar icon={() => <Icon ios="ios-calendar" android="md-calendar" {...eventtabIconStyle}/>}>
                         		<Scene key="CalendarView" component={CalendarView} />
                        		</Stack>
                        		<Stack key="GridView" icon={() => <Icon ios="ios-grid" android="md-grid" {...eventtabIconStyle}/>}>
