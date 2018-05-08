@@ -15,6 +15,7 @@ import CalendarView from '../modules/home/scenes/CalendarView';
 import GridView from '../modules/home/scenes/GridView';
 import ListView from '../modules/home/scenes/ListView';
 import Discover from '../modules/home/scenes/Discover';
+import Sports from '../modules/home/scenes/Discoverdetails/Sports';
 import Following from '../modules/home/scenes/Following';
 import Home from '../modules/home/scenes/Home';
 
@@ -75,6 +76,7 @@ export default class extends React.Component {
                     </Stack>
                     <Stack key="Discover" title="Discover" icon={() => <Icon ios="ios-paper" android="md-paper" {...tabIconStyle}/>}>
                     	<Scene key="DiscoverScreen" component={Discover} hideNavBar />
+                        <Scene key="Sports" title="Sports" component={Sports} hideNavBar/>
                     </Stack>
                     <Stack key="Following" title="Following" icon={() => <Icon ios="ios-add-circle" android="md-add-circle" {...tabIconStyle}/>} >
                     	<Scene key="FollowingScreen" component={Following} hideNavBar />
