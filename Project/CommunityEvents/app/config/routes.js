@@ -17,7 +17,7 @@ import ListView from '../modules/home/scenes/ListView';
 import Discover from '../modules/home/scenes/Discover';
 import Sports from '../modules/home/scenes/Discoverdetails/Sports';
 import Following from '../modules/home/scenes/Following';
-import Home from '../modules/home/scenes/Home';
+import Profile from '../modules/home/scenes/Profile/profile';
 
 //Import Store, actions
 import store from '../redux/store'
@@ -82,7 +82,7 @@ export default class extends React.Component {
                     	<Scene key="FollowingScreen" component={Following} hideNavBar />
                     </Stack>
                     <Stack key="Profile" title="Profile" icon={() => <Icon ios="ios-person" android="md-person" {...tabIconStyle}/>} {...stackProps}>
-                    	<Scene key="Home" component={Home} initial={true} type={ActionConst.REPLACE} />
+                    	<Scene key="Profile" component={Profile} initial={true} type={ActionConst.REPLACE} />
                     </Stack>
                     </Tabs>
         
