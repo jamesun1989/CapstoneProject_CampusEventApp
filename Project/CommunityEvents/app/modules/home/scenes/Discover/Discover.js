@@ -22,7 +22,7 @@ class Discover extends Component {
               <CardItem cardBody>
                 <TouchableOpacity onPress={Actions.Sports} style={{ flex: 1 }}>
                   <Image
-                    source={ require("CommunityEvents/img/FollowingScreen/sports.jpg") }
+                    source={ require("CommunityEvents/img/DiscoverScreen/sports.jpg") }
                     style={{
                       height: 100,
                       width: null,
@@ -35,13 +35,13 @@ class Discover extends Component {
               <CardItem cardBody>
                 <Body>
                 <Spacer size={10} />
-                  <Text style={{ fontWeight: '800' }}>Sports</Text>
+                  <Text style={{ fontWeight: '800', alignSelf: 'center' }}>Sports</Text>
                   <Spacer size={15} />
                   <Button
                     block
                     bordered
                     small
-                    onPress={() => {alert("you clicked me")}}
+                    onPress={Actions.Sports}
                   >
                     <Text>View Events</Text>
                   </Button>
@@ -49,9 +49,9 @@ class Discover extends Component {
                 </Body>
               </CardItem>
               <CardItem cardBody>
-                <TouchableOpacity onPress={()=>{alert("you clicked me")}} style={{ flex: 1 }}>
+                <TouchableOpacity onPress={Actions.Volunteers} style={{ flex: 1 }}>
                   <Image
-                    source={ require("CommunityEvents/img/FollowingScreen/volunteers.jpg") }
+                    source={ require("CommunityEvents/img/DiscoverScreen/volunteers.jpg") }
                     style={{
                       height: 100,
                       width: null,
@@ -64,13 +64,71 @@ class Discover extends Component {
               <CardItem cardBody>
                 <Body>
                 <Spacer size={10} />
-                  <Text style={{ fontWeight: '800' }}>Volunteers</Text>
+                  <Text style={{ fontWeight: '800', alignSelf: 'center' }}>Volunteers</Text>
                   <Spacer size={15} />
                   <Button
                     block
                     bordered
                     small
-                    onPress={() => {alert("you clicked me")}}
+                    onPress={Actions.Volunteers}
+                  >
+                    <Text>View Events</Text>
+                  </Button>
+                  <Spacer size={5} />
+                </Body>
+              </CardItem>
+              <CardItem cardBody>
+                <TouchableOpacity onPress={Actions.Lectures} style={{ flex: 1 }}>
+                  <Image
+                    source={ require("CommunityEvents/img/DiscoverScreen/lecture.jpg") }
+                    style={{
+                      height: 100,
+                      width: null,
+                      flex: 1,
+                      borderRadius: 5,
+                    }}
+                  />
+                </TouchableOpacity>
+              </CardItem>
+              <CardItem cardBody>
+                <Body>
+                <Spacer size={10} />
+                  <Text style={{ fontWeight: '800', alignSelf: 'center' }}>Lectures or Presentation</Text>
+                  <Spacer size={15} />
+                  <Button
+                    block
+                    bordered
+                    small
+                    onPress={Actions.Lectures}
+                  >
+                    <Text>View Events</Text>
+                  </Button>
+                  <Spacer size={5} />
+                </Body>
+              </CardItem>
+              <CardItem cardBody>
+                <TouchableOpacity onPress={Actions.Workshops} style={{ flex: 1 }}>
+                  <Image
+                    source={ require("CommunityEvents/img/DiscoverScreen/conference.jpg") }
+                    style={{
+                      height: 100,
+                      width: null,
+                      flex: 1,
+                      borderRadius: 5,
+                    }}
+                  />
+                </TouchableOpacity>
+              </CardItem>
+              <CardItem cardBody>
+                <Body>
+                <Spacer size={10} />
+                  <Text style={{ fontWeight: '800', alignSelf: 'center' }}>Conference or Workshop</Text>
+                  <Spacer size={15} />
+                  <Button
+                    block
+                    bordered
+                    small
+                    onPress={Actions.Workshops}
                   >
                     <Text>View Events</Text>
                   </Button>

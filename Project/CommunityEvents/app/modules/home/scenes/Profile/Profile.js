@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import {StyleSheet, View } from 'react-native';
-import { StatusBar } from 'react-native'
+import {StyleSheet, View, StatusBar } from 'react-native';
 
-import Header from './ProfileTab/Header.js';
-import Navigator from './ProfileTab/Navigator.js';
+import Header from '../ProfileTab/Header.js';
+import Navigator from '../ProfileTab/Navigator';
 export default class Profile extends Component {
   render() {
     return (

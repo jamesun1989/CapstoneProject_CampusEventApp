@@ -7,7 +7,7 @@ export default class ListView extends Component {
   constructor(props){
     super(props);
     this.state = {
-      sports: [],
+      workshops: [],
       isLoading: false,
       checked: false
     }
@@ -26,17 +26,17 @@ export default class ListView extends Component {
  }
 
   componentDidMount(){
-    database.ref().child('events/0/eventdetails').on('value', (snapshot)=> {
-      const sports = [];
+    database.ref().child('events/2/eventdetails').on('value', (snapshot)=> {
+      const workshops = [];
       snapshot.forEach((childSnapshot) => {
-        sports.push({
+        workshops.push({
           title: childSnapshot.toJSON().title,
           description: childSnapshot.toJSON().description,
           date: childSnapshot.toJSON().date,
           image: childSnapshot.toJSON().image,
         });
         this.setState({
-          sports: sports,
+          workshops: workshops,
           isLoading: false,
         });
       });
@@ -63,7 +63,7 @@ export default class ListView extends Component {
 
        <FlatList
 
-        data={ this.state.sports }
+        data={ this.state.workshops }
 
         ItemSeparatorComponent = {this.FlatListItemSeparator}
 

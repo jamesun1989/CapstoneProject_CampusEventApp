@@ -16,14 +16,18 @@ import GridView from '../modules/home/scenes/GridView';
 import ListView from '../modules/home/scenes/ListView';
 import Discover from '../modules/home/scenes/Discover';
 import Sports from '../modules/home/scenes/Discoverdetails/Sports';
+import Volunteers from '../modules/home/scenes/Discoverdetails/Volunteer';
+import Lectures from '../modules/home/scenes/Discoverdetails/Lecture';
+import Workshops from '../modules/home/scenes/Discoverdetails/Workshop';
 import Following from '../modules/home/scenes/Following';
-import Profile from '../modules/home/scenes/Profile/profile';
+import Home from '../modules/home/scenes/Home';
+//import Profile from '../modules/home/scenes/Profile/Profile';
 
 //Import Store, actions
 import store from '../redux/store'
 import { checkLoginStatus } from "../modules/auth/actions";
 
-import { stackProps, eventtabProps, eventtabIconStyle, tabIconStyle, tabProps, color, navTitleStyle } from "../styles/theme";
+import { eventsProps, stackProps, eventtabProps, eventtabIconStyle, tabIconStyle, tabProps, color, navTitleStyle } from "../styles/theme";
 
 export default class extends React.Component {
     constructor() {
@@ -76,13 +80,16 @@ export default class extends React.Component {
                     </Stack>
                     <Stack key="Discover" title="Discover" icon={() => <Icon ios="ios-paper" android="md-paper" {...tabIconStyle}/>}>
                     	<Scene key="DiscoverScreen" component={Discover} hideNavBar />
-                        <Scene key="Sports" title="Sports" component={Sports} hideNavBar/>
+                        <Scene key="Sports" title="Sports" component={Sports} navBarButtonColor={{ tintColor: 'White' }} {...eventsProps} back/>
+                        <Scene key="Volunteers" title="Volunteers" component={Volunteers} navBarButtonColor={{ tintColor: 'White' }} {...eventsProps} back/>
+                        <Scene key="Lectures" title="Lectures" component={Lectures} navBarButtonColor={{ tintColor: 'White' }} {...eventsProps} back/>
+                        <Scene key="Workshops" title="Workshops" component={Workshops} navBarButtonColor={{ tintColor: 'White' }} {...eventsProps} back/>
                     </Stack>
                     <Stack key="Following" title="Following" icon={() => <Icon ios="ios-add-circle" android="md-add-circle" {...tabIconStyle}/>} >
                     	<Scene key="FollowingScreen" component={Following} hideNavBar />
                     </Stack>
                     <Stack key="Profile" title="Profile" icon={() => <Icon ios="ios-person" android="md-person" {...tabIconStyle}/>} {...stackProps}>
-                    	<Scene key="Profile" component={Profile} initial={true} type={ActionConst.REPLACE} />
+                    	<Scene key="Profile" component={Home} initial={true} type={ActionConst.REPLACE} />
                     </Stack>
                     </Tabs>
         
