@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {StyleSheet, Platform, View, ActivityIndicator, FlatList, Text, Image} from 'react-native';
 import {CheckBox, Header, Left, Right, Title, Body, Container } from 'native-base';
 import { auth, database } from '../../../../config/firebase';
+import Spacer from '../Discover/Spacer';
 import { Button } from 'react-native-elements';
 
 export default class ListView extends Component {
@@ -90,7 +91,8 @@ export default class ListView extends Component {
               <Text style={styles.textTitleView} >{item.title}</Text>
               <Text style={styles.textView} >{item.description}</Text>
               <Text style={styles.textTitleView} >{item.date}</Text>
-              <Button title='Following' onPress={()=>this.getfavoriteEvents(item.id, item.title, item.description, item.date, item.image)} />
+              <Button buttonStyle={{backgroundColor: '#ff4d4d', width: 100, height:30}} title='Following' onPress={()=>this.getfavoriteEvents(item.id, item.title, item.description, item.date, item.image)} />
+              <Spacer size={15} />
               </View>
             </View>
 
