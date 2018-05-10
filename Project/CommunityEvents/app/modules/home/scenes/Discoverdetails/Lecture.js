@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import {StyleSheet, Platform, View, ActivityIndicator, FlatList, Text, Image} from 'react-native';
+import {CheckBox, Header, Left, Right, Title, Body, Container } from 'native-base';
 import { auth, database } from '../../../../config/firebase';
+import Spacer from '../Discover/Spacer';
+
+import { Button } from 'react-native-elements';
 
 export default class ListView extends Component {
   constructor(props){
     super(props);
     this.state = {
+      lectures: [],
       isLoading: false,
-      favorites: [],
+      checked: false
     }
   }
 
@@ -24,11 +29,10 @@ export default class ListView extends Component {
  }
 
   componentDidMount(){
-    const user = auth.currentUser;
-    database.ref().child('users'+ user.uid).child('followingevents').on('value', (snapshot)=> {
-      const favorites = [];
+    database.ref().child('events/3/eventdetails').on('value', (snapshot)=> {
+      const lectures = [];
       snapshot.forEach((childSnapshot) => {
-        favorites.push({
+        lectures.push({
           title: childSnapshot.toJSON().title,
           description: childSnapshot.toJSON().description,
           date: childSnapshot.toJSON().date,
@@ -36,12 +40,23 @@ export default class ListView extends Component {
           id: childSnapshot.toJSON().id,
         });
         this.setState({
-          favorites: favorites,
+          lectures: lectures,
           isLoading: false,
         });
       });
     });
   }
+
+  getfavoriteEvents(id, title, description, date, image) {
+    const user = auth.currentUser;
+    database.ref('users' + user.uid).child('followingevents').push().set({
+      id: id,
+      title: title,
+      description: description,
+      date: date,
+      image: image
+    })
+}
 
   render() {
     if (this.state.isLoading) {
@@ -57,11 +72,13 @@ export default class ListView extends Component {
 
    }
     return (
+    
+
       <View style={styles.MainContainer}>
 
        <FlatList
 
-        data={ this.state.favorites }
+        data={ this.state.lectures }
 
         ItemSeparatorComponent = {this.FlatListItemSeparator}
 
@@ -75,6 +92,8 @@ export default class ListView extends Component {
               <Text style={styles.textTitleView} >{item.title}</Text>
               <Text style={styles.textView} >{item.description}</Text>
               <Text style={styles.textTitleView} >{item.date}</Text>
+              <Button buttonStyle={{backgroundColor: '#ff4d4d', width: 100, height:30}} title='Following' onPress={()=>this.getfavoriteEvents(item.id, item.title, item.description, item.date, item.image)} />
+              <Spacer size={15} />
               </View>
             </View>
 

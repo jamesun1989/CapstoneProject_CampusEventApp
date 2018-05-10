@@ -2,8 +2,8 @@ import React from 'react';
 import {Text, View, TouchableOpacity, Image} from 'react-native';
 
 import { Google } from 'expo';
-import {Button, SocialIcon, Divider} from 'react-native-elements'
-import {Actions} from 'react-native-router-flux'
+import {Button, SocialIcon, Divider} from 'react-native-elements';
+import {Actions} from 'react-native-router-flux';
 import {connect} from 'react-redux';
 
 import {actions as auth, constants as c } from "../../index"

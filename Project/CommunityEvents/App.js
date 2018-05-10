@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { Font, AppLoading } from 'expo';
+import { YellowBox } from 'react-native';
 
 import Router from './app/config/routes';
 import store from './app/redux/store';
 
+console.disableYellowBox = true;
+
 function cacheFonts(fonts) {
     return fonts.map(font => Font.loadAsync(font));
 }
+
+
 
 export default class App extends Component {
     constructor() {

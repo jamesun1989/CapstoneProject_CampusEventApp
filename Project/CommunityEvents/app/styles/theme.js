@@ -79,6 +79,16 @@ const stackProps = {
     }
 }
 
+const eventsProps = {
+    titleStyle: {
+        fontSize: 16,
+        color: '#ffffff',
+        alignSelf: 'center'},
+        navigationBarStyle: {
+        backgroundColor: '#ff4d4d'
+    }
+}
+
 export {
     color,
     fontSize,
@@ -93,5 +103,6 @@ export {
     tabProps,
     eventtabIconStyle,
     eventtabProps,
-    stackProps
+    stackProps,
+    eventsProps
 }

@@ -89,7 +89,11 @@ export default class extends React.Component {
                     	<Scene key="FollowingScreen" component={Following} hideNavBar />
                     </Stack>
                     <Stack key="Profile" title="Profile" icon={() => <Icon ios="ios-person" android="md-person" {...tabIconStyle}/>} {...stackProps}>
+<<<<<<< HEAD
+                    	<Scene key="Profile" component={Profile} initial={true} type={ActionConst.REPLACE} onRight={() => alert("hello")} />
+=======
                     	<Scene key="Profile" component={Home} initial={true} type={ActionConst.REPLACE} />
+>>>>>>> 36a44c91ea61d5f2275e64e2a3369fb128552b3b
                     </Stack>
                     </Tabs>
         
