@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {StyleSheet, Platform, View, ActivityIndicator, FlatList, Text, Image} from 'react-native';
 import {CheckBox, Header, Left, Right, Title, Body, Container } from 'native-base';
-import { database } from '../../../../config/firebase';
+import { auth, database } from '../../../../config/firebase';
+import { Button } from 'react-native-elements';
 
 export default class ListView extends Component {
   constructor(props){
@@ -34,6 +35,7 @@ export default class ListView extends Component {
           description: childSnapshot.toJSON().description,
           date: childSnapshot.toJSON().date,
           image: childSnapshot.toJSON().image,
+          id: childSnapshot.toJSON().id,
         });
         this.setState({
           workshops: workshops,
@@ -42,6 +44,17 @@ export default class ListView extends Component {
       });
     });
   }
+
+  getfavoriteEvents(id, title, description, date, image) {
+    const user = auth.currentUser;
+    database.ref('users' + user.uid).child('followingevents').push().set({
+      id: id,
+      title: title,
+      description: description,
+      date: date,
+      image: image
+    })
+}
 
   render() {
     if (this.state.isLoading) {
@@ -77,10 +90,7 @@ export default class ListView extends Component {
               <Text style={styles.textTitleView} >{item.title}</Text>
               <Text style={styles.textView} >{item.description}</Text>
               <Text style={styles.textTitleView} >{item.date}</Text>
-              <View style={{flexDirection: 'row' }}>
-              <CheckBox onPress={() => this.setState({checked: !this.state.checked})} checked={this.state.checked} />
-              <Text style={styles.textView}> Following</Text>
-              </View>
+              <Button title='Following' onPress={()=>this.getfavoriteEvents(item.id, item.title, item.description, item.date, item.image)} />
               </View>
             </View>
 

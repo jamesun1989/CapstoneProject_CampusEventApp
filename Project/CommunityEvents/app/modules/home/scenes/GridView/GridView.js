@@ -1,25 +1,33 @@
 import React, { Component } from 'react';
 import {StyleSheet, Platform, View, ActivityIndicator, FlatList, Text, Image} from 'react-native';
+import { auth, database } from '../../../../config/firebase';
 
 export default class GridView extends Component {
   constructor(props){
     super(props);
     this.state = {
-      isLoading: true
+      isLoading: false,
+      favorites: [],
     }
   }
 
   componentDidMount(){
-    return fetch('http://192.168.1.77/EventsList.php')
-    .then((response) => response.json())
-    .then((responseJson) => {
-      this.setState({
-        isLoading: false,
-        dataSource: responseJson
+    const user = auth.currentUser;
+    database.ref().child('users'+ user.uid).child('followingevents').on('value', (snapshot)=> {
+      const favorites = [];
+      snapshot.forEach((childSnapshot) => {
+        favorites.push({
+          title: childSnapshot.toJSON().title,
+          description: childSnapshot.toJSON().description,
+          date: childSnapshot.toJSON().date,
+          image: childSnapshot.toJSON().image,
+          id: childSnapshot.toJSON().id,
+        });
+        this.setState({
+          favorites: favorites,
+          isLoading: false,
+        });
       });
-    })
-    .catch((error) => {
-      console.error(error);
     });
   }
 
@@ -41,13 +49,13 @@ export default class GridView extends Component {
 
         <FlatList
 
-            data={ this.state.dataSource }
+            data={ this.state.favorites }
             renderItem={({item}) =>
 
                     <View style={styles.GridViewBlockStyle}>
                     <View style={{flex:1, flexDirection:'column'}}>
-                        <Text style={styles.GridViewTitleStyle} >{item.event_name}</Text>
-                        <Text style={styles.GridViewInsideTextItemStyle} >{item.event_description}</Text>
+                        <Text style={styles.GridViewTitleStyle} >{item.title}</Text>
+                        <Text style={styles.GridViewInsideTextItemStyle} >{item.description}</Text>
                         </View>
 
                     </View>

@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import {StyleSheet, Platform, View, ActivityIndicator, FlatList, Text, Image} from 'react-native';
-import {CheckBox} from 'native-base';
+import { auth, database } from '../../../../config/firebase';
+
 export default class ListView extends Component {
   constructor(props){
     super(props);
     this.state = {
-      isLoading: true,
-      checked: false
+      isLoading: false,
+      favorites: [],
     }
   }
 
@@ -22,22 +23,24 @@ export default class ListView extends Component {
    );
  }
 
-  webCall=()=>{
-    return fetch('http://192.168.1.77/EventsList.php')
-    .then((response) => response.json())
-    .then((responseJson) => {
-      this.setState({
-        isLoading: false,
-        dataSource: responseJson
-      });
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-  }
-
   componentDidMount(){
-    this.webCall();
+    const user = auth.currentUser;
+    database.ref().child('users'+ user.uid).child('followingevents').on('value', (snapshot)=> {
+      const favorites = [];
+      snapshot.forEach((childSnapshot) => {
+        favorites.push({
+          title: childSnapshot.toJSON().title,
+          description: childSnapshot.toJSON().description,
+          date: childSnapshot.toJSON().date,
+          image: childSnapshot.toJSON().image,
+          id: childSnapshot.toJSON().id,
+        });
+        this.setState({
+          favorites: favorites,
+          isLoading: false,
+        });
+      });
+    });
   }
 
   render() {
@@ -58,7 +61,7 @@ export default class ListView extends Component {
 
        <FlatList
 
-        data={ this.state.dataSource }
+        data={ this.state.favorites }
 
         ItemSeparatorComponent = {this.FlatListItemSeparator}
 
@@ -66,16 +69,12 @@ export default class ListView extends Component {
 
             <View style={{flex:1, flexDirection: 'row'}}>
 
-              <Image source = {{ uri: item.event_image }} style={styles.imageView} />
+              <Image source = {{ uri: item.image }} style={styles.imageView} />
 
               <View style={{flex:1, flexDirection:'column'}}>
-              <Text style={styles.textTitleView} >{item.event_name}</Text>
-              <Text style={styles.textView} >{item.event_description}</Text>
-              <Text style={styles.textTitleView} >{item.event_day} {item.event_month} {item.event_year}</Text>
-              <View style={{flexDirection: 'row' }}>
-              <CheckBox onPress={() => this.setState({checked: !this.state.checked})} checked={this.state.checked} />
-              <Text style={styles.textView}> Following</Text>
-              </View>
+              <Text style={styles.textTitleView} >{item.title}</Text>
+              <Text style={styles.textView} >{item.description}</Text>
+              <Text style={styles.textTitleView} >{item.date}</Text>
               </View>
             </View>
 
@@ -103,8 +102,8 @@ MainContainer :{
 
 imageView: {
 
-    width: '20%',
-    height: 80 ,
+    width: '30%',
+    height: 120,
     margin: 10,
     borderRadius : 100
 
@@ -112,16 +111,16 @@ imageView: {
 
 textView: {
 
-    width:'70%',
-    textAlignVertical:'center',
+    width:'100%',
+    textAlign:'auto',
     padding:10,
     color: '#000'
 
 },
 textTitleView: {
 
-    width:'70%',
-    textAlignVertical:'center',
+    width:'100%',
+    textAlign:'auto',
     padding:10,
     color: '#000',
     fontWeight: "bold"
