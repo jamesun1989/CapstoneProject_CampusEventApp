@@ -1,4 +1,4 @@
-Intro
+## Intro
 
 - A shared React and React Native structure
 - __Flux architecture__
@@ -31,7 +31,7 @@ _*It's recommended that you install [Yarn](https://yarnpkg.com/en/)._
 yarn i or npm i
 ```
 
-#### 2.1. Run the _React Native_ App
+#### 2. Run the _React Native_ App
 
 ```bash
 # Start the React Native packager
