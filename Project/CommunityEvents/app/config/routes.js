@@ -67,13 +67,13 @@ export default class extends React.Component {
                     <Stack key="Events" hideNavBar={false} title="My Events" tabBarLabel="Events" icon={() => <Icon name="globe" {...tabIconStyle}/>} {...stackProps}>
                     	<Tabs key="EventsTabbar" type="replace" {...eventtabProps}>
                     		<Stack key="Calendar" icon={() => <Icon ios="ios-calendar" android="md-calendar" {...eventtabIconStyle}/>}>
-                        		<Scene key="CalendarView" component={CalendarView} />
+                        		<Scene key="CalendarView" component={CalendarView} hideNavBar/>
                        		</Stack>
                        		<Stack key="GridView" icon={() => <Icon ios="ios-grid" android="md-grid" {...eventtabIconStyle}/>}>
-                        		<Scene key="GridView" component={GridView} />
+                        		<Scene key="GridView" component={GridView} hideNavBar/>
                        		</Stack>
                        		<Stack key="ListView" icon={() => <Icon ios="ios-list" android="md-list" {...eventtabIconStyle}/>}>
-                        		<Scene key="ListView" component={ListView}  />
+                        		<Scene key="ListView" component={ListView}  hideNavBar/>
                        		</Stack>
                        	</Tabs>
                     </Stack>
@@ -84,8 +84,8 @@ export default class extends React.Component {
                         <Scene key="Lectures" title="Lectures" component={Lectures} navBarButtonColor={{ tintColor: 'White' }} {...eventsProps} back/>
                         <Scene key="Workshops" title="Workshops" component={Workshops} navBarButtonColor={{ tintColor: 'White' }} {...eventsProps} back/>
                     </Stack>
-                    <Stack key="Following" title="Following" icon={() => <Icon ios="ios-add-circle" android="md-add-circle" {...tabIconStyle}/>} >
-                    	<Scene key="FollowingScreen" component={Following} hideNavBar />
+                    <Stack key="Following" title="Following" icon={() => <Icon ios="ios-add-circle" android="md-add-circle" {...tabIconStyle}/>} {...stackProps} >
+                    	<Scene key="FollowingScreen" component={Following} />
                     </Stack>
                     <Stack key="Profile" title="Profile" icon={() => <Icon ios="ios-person" android="md-person" {...tabIconStyle}/>} {...stackProps}>
                     	<Scene key="Profile" component={Profile} initial={true} type={ActionConst.REPLACE} />

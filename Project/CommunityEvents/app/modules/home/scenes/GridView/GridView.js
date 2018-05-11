@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {StyleSheet, Platform, View, ActivityIndicator, FlatList, Text, Image} from 'react-native';
+import { Alert, TouchableOpacity, StyleSheet, Platform, View, ActivityIndicator, FlatList, Text, Image} from 'react-native';
 import { auth, database } from '../../../../config/firebase';
 
 export default class GridView extends Component {
@@ -54,15 +54,16 @@ export default class GridView extends Component {
 
                     <View style={styles.GridViewBlockStyle}>
                     <View style={{flex:1, flexDirection:'column'}}>
+                    <TouchableOpacity onPress={()=>Alert.alert(item.title, item.description)} style={{ flex: 1 }}>
                         <Text style={styles.GridViewTitleStyle} >{item.title}</Text>
-                        <Text style={styles.GridViewInsideTextItemStyle} >{item.description}</Text>
-                        </View>
+                    </TouchableOpacity>    
+                    </View>
 
                     </View>
 
           }
 
-        keyExtractor={(item, index) => index}
+        keyExtractor={(item, index) => index.toString()}
         numColumns={2}
         />
 
@@ -119,7 +120,7 @@ GridViewBlockStyle: {
 
       color: '#000',
       padding: 10,
-      fontSize: 10,
+      fontSize: 20,
       textAlignVertical:'center',
       fontWeight: "bold"
 

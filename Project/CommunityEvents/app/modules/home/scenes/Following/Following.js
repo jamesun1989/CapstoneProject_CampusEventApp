@@ -1,65 +1,161 @@
 import React, { Component } from 'react';
-import { Container, Title, Left, Right, Header, Content, List, ListItem, Thumbnail, Text, Body, CheckBox, Icon} from 'native-base';
-import {View} from 'react-native'
-export default class Following extends Component {
-    constructor(props){
-        super(props);
-        this.state = {checked:false};
+import {StyleSheet, Platform, View, ActivityIndicator, FlatList, Text, Image} from 'react-native';
+import {CheckBox, Header, Left, Right, Title, Body, Container } from 'native-base';
+import { auth, database } from '../../../../config/firebase';
+import Spacer from '../Discover/Spacer';
+import { Button } from 'react-native-elements';
+
+export default class ListView extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      sports: [],
+      isLoading: false,
+      inFavourites: false,
     }
-    render() {
-        return (
-                <Container>
-                    <Header style={{backgroundColor:"#ff4d4d"}}>
-                    <Left style={{ flex: 1}} />
-                    <Body style={{ flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-                    <Title>Following</Title>
-                    </Body>
-                    <Right style={{ flex: 1}} />
-                    </Header>
-                    <Content>
-                        <List>
-                            <ListItem>
-                                <Thumbnail square size={80} source={{ uri: 'http://career.oregonstate.edu/sites/career.oregonstate.edu/files/bronze_icon.jpg' }} />
-                                <Body>
-                                    <Text>OSU Career Development Center</Text>
-                                    <Text note>Events this term (5)</Text>
-                                    <Text note>Followers (4)</Text>
-                                    <View style={{flexDirection: "row"}}>
-                                        <CheckBox onPress={() => this.setState({checked: !this.state.checked})} checked={this.state.checked} />
-                                        <Text note>  Following</Text>
-                                        <Icon name= 'add' style={{position: "absolute", bottom: 0, right: 0}}/>
-                                    </View>
-                                </Body>
-                            </ListItem>
-                            <ListItem>
-                                <Thumbnail square size={80} source={{ uri: '' }} />
-                                <Body>
-                                    <Text>Dam Chic</Text>
-                                    <Text note>Events this term (7)</Text>
-                                    <Text note>Followers (22)</Text>
-                                    <View style={{flexDirection: "row"}}>
-                                        <CheckBox onPress={() => this.setState({checked: !this.state.checked})} checked={this.state.checked} />
-                                        <Text note>  Following</Text>
-                                        <Icon name= 'add' style={{position: "absolute", bottom: 0, right: 0}}/>
-                                    </View>
-                                </Body>
-                            </ListItem>
-                            <ListItem>
-                                <Thumbnail square size={80} source={{ uri: 'https://www.internetcreations.com/s/images/customers/stories/OSU-COB-logo.jpg?v=1' }} />
-                                <Body>
-                                    <Text>OSU College of Besiness</Text>
-                                    <Text note>Events this term (20)</Text>
-                                    <Text note>Followers (45)</Text>
-                                    <View style={{flexDirection: "row"}}>
-                                        <CheckBox onPress={() => this.setState({checked: !this.state.checked})} checked={this.state.checked} />
-                                        <Text note>  Following</Text>
-                                        <Icon name= 'add' style={{position: "absolute", bottom: 0, right: 0}}/>
-                                    </View>
-                                </Body>
-                            </ListItem>
-                        </List>
-                    </Content>
-                </Container>
-        );
-    }
+  }
+
+  FlatListItemSeparator = () => {
+   return (
+     <View
+       style={{
+         height: 0.7,
+         width: "100%",
+         backgroundColor: "#000",
+       }}
+     />
+   );
+ }
+
+  componentDidMount(){
+    database.ref().child('group/').on('value', (snapshot)=> {
+      const sports = [];
+      snapshot.forEach((childSnapshot) => {
+        sports.push({
+          followers: childSnapshot.toJSON().followers,
+          image: childSnapshot.toJSON().image,
+          name: childSnapshot.toJSON().groupname,
+        });
+        this.setState({
+          sports: sports,
+          isLoading: false,
+        });
+      });
+    });
+  }
+
+  followgroups() {
+    const user = auth.currentUser;
+    const username = user.username;
+    database.ref().child('group').push().set({
+      followers: username,
+    });
+
+    this.setState({
+      inFavourites: true,
+      isLoading: false,
+    });
 }
+
+  /*deletefavoriteEvents(title){
+    const user = auth.currentUser;
+    database.ref('users' + user.uid).child('followingevents').orderByChild('title').equalTo(title)
+    .once('value', (snapshot)=>{
+      snapshot.forEach((childSnapshot)=>{
+        childSnapshot.ref.remove();
+      });
+    });
+    this.setState({
+      inFavourites: false,
+      isLoading: false,
+    });
+  }*/
+
+  render() {
+    if (this.state.isLoading) {
+     return (
+
+      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+
+         <ActivityIndicator size="large" />
+
+       </View>
+
+     );
+
+   }
+    return (
+    
+
+      <View style={styles.MainContainer}>
+
+       <FlatList
+
+        data={ this.state.sports }
+
+        ItemSeparatorComponent = {this.FlatListItemSeparator}
+
+        renderItem={({item}) =>
+
+            <View style={{flex:1, flexDirection: 'row'}}>
+
+              <Image source = {{ uri: item.image }} style={styles.imageView} />
+
+              <View style={{flex:1, flexDirection:'column'}}>
+              <Text style={styles.textTitleView} >{item.name}</Text>
+              <Text style={styles.textView} >{item.description}</Text>
+              <Button buttonStyle={{backgroundColor: '#ff4d4d', width: 100, height:30}} title={ this.state.inFavourites ? "UNFOLLOW" : "FOLLOW"}  onPress={() => this.followgroups()}/>
+              <Spacer size={15} />
+              </View>
+            </View>
+
+          }
+
+        keyExtractor={(item, index) => index.toString()}
+
+        />
+
+     </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+
+MainContainer :{
+
+    justifyContent: 'center',
+    flex:1,
+    margin: 5,
+    marginTop: (Platform.OS === 'ios') ? 20 : 0,
+
+},
+
+imageView: {
+
+    width: '25%',
+    height: 95,
+    margin: 10,
+    borderRadius : 100
+
+},
+
+textView: {
+
+    width:'100%',
+    textAlign:'auto',
+    padding:10,
+    color: '#000'
+
+},
+textTitleView: {
+
+    width:'100%',
+    textAlign:'auto',
+    padding:10,
+    color: '#000',
+    fontWeight: "bold"
+
+}
+
+});
