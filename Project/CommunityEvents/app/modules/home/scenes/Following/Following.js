@@ -115,7 +115,7 @@ export default class ListView extends Component {
 
               <View style={{flex:1, flexDirection:'column'}}>
               <Text style={styles.textTitleView} >{item.name}</Text>
-              <Text style={styles.textView} >{item.description}</Text>
+              <Spacer size={20} />
               <Button buttonStyle={{backgroundColor: '#ff4d4d', width: 100, height:30}} title="FOLLOW"  onPress={() => this.followgroups(item.name, item.image, item.id)}/>
               <Spacer size={15} />
               </View>
