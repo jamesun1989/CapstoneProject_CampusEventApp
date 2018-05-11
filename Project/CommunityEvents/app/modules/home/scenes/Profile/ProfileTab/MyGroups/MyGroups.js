@@ -28,11 +28,7 @@ export default class ListView extends Component {
  }
 
   componentDidMount(){
-    
-    const user = auth.currentUser;
-
-
-    database.ref().child('group').child('followers').orderByChild('follower').equalTo(user.uid).on('value', (snapshot)=> {
+      database.ref().child('group').on('value', (snapshot)=> {
       const sports = [];
       snapshot.forEach((childSnapshot) => {
         sports.push({
@@ -80,7 +76,6 @@ export default class ListView extends Component {
 
               <View style={{flex:1, flexDirection:'column'}}>
               <Text style={styles.textTitleView} >{item.name}</Text>
-              <Text style={styles.textView} >{item.description}</Text>
               <Spacer size={15} />
               </View>
             </View>
@@ -127,7 +122,7 @@ textView: {
 textTitleView: {
 
     width:'100%',
-    textAlign:'auto',
+    textAlign:'center',
     padding:10,
     color: '#000',
     fontWeight: "bold"
