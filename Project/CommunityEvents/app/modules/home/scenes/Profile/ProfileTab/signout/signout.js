@@ -37,6 +37,7 @@ class SignOut extends React.Component {
             <View style={styles.container}>
                 <Button
                     raised
+                    color="#FFF"
                     borderRadius={4}
                     title={'LOG OUT'}
                     containerViewStyle={[styles.containerView]}

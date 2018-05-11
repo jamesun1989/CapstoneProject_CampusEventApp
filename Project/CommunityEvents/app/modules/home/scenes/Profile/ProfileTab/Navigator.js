@@ -46,6 +46,9 @@ const ProfileNavigation = TabNavigator ({
     activeTintColor: 'tomato',
     inactiveTintColor: 'tomato'
   },
+  style: {
+    resizeMode: 'stretch'
+  },
   animationEnabled: false,
   swipeEnabled: false,
   lazyLoad: false,
