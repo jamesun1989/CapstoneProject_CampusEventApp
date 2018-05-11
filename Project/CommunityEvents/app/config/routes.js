@@ -84,8 +84,8 @@ export default class extends React.Component {
                         <Scene key="Lectures" title="Lectures" component={Lectures} navBarButtonColor={{ tintColor: 'White' }} {...eventsProps} back/>
                         <Scene key="Workshops" title="Workshops" component={Workshops} navBarButtonColor={{ tintColor: 'White' }} {...eventsProps} back/>
                     </Stack>
-                    <Stack key="Following" title="Following" icon={() => <Icon ios="ios-add-circle" android="md-add-circle" {...tabIconStyle}/>} >
-                    	<Scene key="FollowingScreen" component={Following} hideNavBar />
+                    <Stack key="Following" title="Following" icon={() => <Icon ios="ios-add-circle" android="md-add-circle" {...tabIconStyle}/>} {...stackProps} >
+                    	<Scene key="FollowingScreen" component={Following} />
                     </Stack>
                     <Stack key="Profile" title="Profile" icon={() => <Icon ios="ios-person" android="md-person" {...tabIconStyle}/>} {...stackProps}>
                     	<Scene key="Profile" component={Profile} initial={true} type={ActionConst.REPLACE} />
