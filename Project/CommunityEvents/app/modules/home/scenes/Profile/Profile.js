@@ -12,7 +12,7 @@ export default class Profile extends Component {
         <View style={styles.ProfilePicWrap}>
           <Image style={styles.ProfilePic} source={require('./ProfileTab/test_img/0_200.png')}></Image>
         </View>
-        <Navigator />
+        <View style={styles.navSize}><Navigator /></View>
         <SignOut />
       </View>
     );
@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
   headerBackground:{
     flex: 1,
     position: 'relative',
+    backgroundColor:"white",
     width: null,
     height: null,
     resizeMode: 'stretch'
@@ -35,14 +36,21 @@ const styles = StyleSheet.create({
     height: 125,
     top: 30,
     position: 'absolute',
-    backgroundColor: '#FFF',
+    backgroundColor:"white",
     borderWidth: 16,
     alignSelf: 'center'
   },
   ProfilePic: {
     flex: 1,
     width: null,
-    borderColor: '#FFF',
+    backgroundColor:"white",
     borderWidth: 2
+  },
+  navSize: {
+    flex:1,
+    height: 150,
+    resizeMode: 'stretch',
+    justifyContent: 'flex-end'
+
   }
 });

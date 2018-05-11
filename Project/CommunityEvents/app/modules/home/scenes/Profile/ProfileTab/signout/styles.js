@@ -6,24 +6,23 @@ const resizeMode = 'contain';
 
 const styles = StyleSheet.create({
     container:{
-        flex:1
+        flex:1,
+        justifyContent: 'flex-end',
+        resizeMode: 'stretch'
+
     },
   
     bottomContainer:{
         backgroundColor:"white",
         paddingVertical: padding * 3,
-        shadowColor: "#000000",
-        shadowOpacity: 0.8,
-        shadowRadius: 2,
-        shadowOffset: {
-            height: 1,
-            width: 0
-        }
+        justifyContent: 'flex-end',
+        color: 'tomato',
+
     },
 
     buttonContainer:{
-        justifyContent:"center",
-        alignItems:"center"
+        justifyContent:"flex-end",
+        alignItems:"center",
     }
 });
 
