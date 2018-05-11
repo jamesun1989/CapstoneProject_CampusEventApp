@@ -20,7 +20,6 @@ import Volunteers from '../modules/home/scenes/Discoverdetails/Volunteer';
 import Lectures from '../modules/home/scenes/Discoverdetails/Lecture';
 import Workshops from '../modules/home/scenes/Discoverdetails/Workshop';
 import Following from '../modules/home/scenes/Following';
-import Home from '../modules/home/scenes/Home';
 import Profile from '../modules/home/scenes/Profile/Profile';
 
 //Import Store, actions

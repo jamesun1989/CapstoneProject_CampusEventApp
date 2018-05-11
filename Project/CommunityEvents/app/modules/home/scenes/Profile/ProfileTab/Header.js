@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {StyleSheet, View, Text, Image, ImageBackground  } from 'react-native';
+import {auth, database} from '../../../../../config/firebase'
 
 export default class Header extends Component {
   render() {
@@ -11,11 +12,11 @@ export default class Header extends Component {
 
           <View style={styles.ProfilePicWrap}>
 
-            <Image style={styles.ProfilePic} source={require('../ProfileTab/test_img/OK_thumb.jpg')}></Image>
+            <Image style={styles.ProfilePic} source={require('../ProfileTab/test_img/0_200.png')}></Image>
 
           </View>
 
-          <Text style={styles.name}>One Punch</Text>
+          <Text style={styles.name}></Text>
 
         </View>
       
@@ -41,10 +42,9 @@ const styles = StyleSheet.create({
   },
 
   ProfilePicWrap:{
-    width: 180,
-    height: 180,
-    borderRadius: 100,
-    backgroundColor: '#000000',
+    width: 150,
+    height: 150,
+    backgroundColor: '#FFF',
     borderWidth: 16,
   },
   ProfilePic: {
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     width: null,
     alignSelf: 'stretch',
     borderRadius: 100,
-    borderColor: '#000000',
+    borderColor: '#FFF',
     borderWidth: 4
   },
   name: {
