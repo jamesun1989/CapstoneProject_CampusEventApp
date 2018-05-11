@@ -3,8 +3,8 @@ import {StyleSheet, View, Text} from 'react-native';
 import { StackNavigator, TabNavigator } from 'react-navigation';
 
 import Events from '../../ListView/ListView';
-import Groups from './ProfileTabs/Groups';
-import Friends from './ProfileTabs/Friends';
+import Groups from '../ProfileTab/MyGroups/MyGroups';
+//import Friends from './ProfileTabs/Friends';
 
 
 const ProfileNavigation = TabNavigator ({
@@ -23,15 +23,15 @@ const ProfileNavigation = TabNavigator ({
       headerTitle: 'My Groups',
       tabBarLabel: 'My Groups',
     }
-  },
-  Friends: {
+  }
+  /*Friends: {
     screen: Friends,
     navigationOptions:{
       title: 'Friends',
       headerTitle: 'Friends',
       tabBarLabel: 'Friends',
     }
-  }
+  }*/
 },
 {
   tabBarOptions: {
