@@ -51,16 +51,14 @@ export default class GridView extends Component {
 
             data={ this.state.favorites }
             renderItem={({item}) =>
-
                     <View style={styles.GridViewBlockStyle}>
                     <View style={{flex:1, flexDirection:'column'}}>
                     <TouchableOpacity onPress={()=>Alert.alert(item.title, item.description)} style={{ flex: 1 }}>
-                        <Text style={styles.GridViewTitleStyle} >{item.title}</Text>
+                        <Image source = {{ uri: item.image }} style={styles.imageView} />
+                        <Text style={styles.GridViewTitleStyle}>{item.title}</Text>
                     </TouchableOpacity>    
                     </View>
-
                     </View>
-
           }
 
         keyExtractor={(item, index) => index.toString()}
@@ -95,12 +93,21 @@ ActivityIndicator_Style:{
     borderRadius: 10
 },
 
+imageView: {
+
+    height: 100,
+    width:200,
+    flex: 1,
+    borderRadius: 5
+
+},
+
 GridViewBlockStyle: {
 
     justifyContent: 'center',
     flex:1,
     alignItems: 'center',
-    height: 100,
+    height: 150,
     margin: 5,
     backgroundColor: '#fff'
 
@@ -120,8 +127,8 @@ GridViewBlockStyle: {
 
       color: '#000',
       padding: 10,
-      fontSize: 20,
-      textAlignVertical:'center',
+      fontSize: 14,
+      textAlignVertical:'bottom',
       fontWeight: "bold"
 
     }
