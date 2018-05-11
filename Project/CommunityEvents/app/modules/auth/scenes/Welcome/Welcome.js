@@ -63,7 +63,7 @@ class Welcome extends React.Component {
                             raised
                             button
                             type='google'
-                            title='SIGN UP WITH GOOGLE'
+                            title='SIGN UP/SIGN IN WITH GOOGLE'
                             iconSize={19}
                             style={[styles.containerView, styles.socialButton]}
                             fontStyle={styles.buttonText}

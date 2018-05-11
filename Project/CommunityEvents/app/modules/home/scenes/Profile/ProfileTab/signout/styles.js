@@ -22,13 +22,8 @@ const styles = StyleSheet.create({
     },
 
     buttonContainer:{
-        width: '60%', 
-        height: 50, 
-        backgroundColor: '#FF9800', 
-        justifyContent: 'center', 
-        alignItems: 'center',
-        position: 'absolute',
-        bottom: 0
+        justifyContent:"center",
+        alignItems:"center"
     }
 });
 
