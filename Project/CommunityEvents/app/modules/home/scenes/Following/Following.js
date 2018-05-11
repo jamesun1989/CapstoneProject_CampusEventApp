@@ -11,7 +11,7 @@ export default class ListView extends Component {
     this.state = {
       sports: [],
       isLoading: false,
-      inFavourites: false,
+      //inFavourites: false,
     }
   }
 
@@ -28,13 +28,13 @@ export default class ListView extends Component {
  }
 
   componentDidMount(){
-    database.ref().child('group/').on('value', (snapshot)=> {
+    database.ref().child('group').on('value', (snapshot)=> {
       const sports = [];
       snapshot.forEach((childSnapshot) => {
         sports.push({
-          followers: childSnapshot.toJSON().followers,
           image: childSnapshot.toJSON().image,
           name: childSnapshot.toJSON().groupname,
+          id: childSnapshot.toJSON().id,
         });
         this.setState({
           sports: sports,
@@ -44,12 +44,24 @@ export default class ListView extends Component {
     });
   }
 
-  followgroups() {
+  followgroups(name, image, id) {
     const user = auth.currentUser;
-    const username = user.username;
-    database.ref().child('group').push().set({
-      followers: username,
+    database.ref('users' + user.uid).child('followinggroups').push().set({
+      groupname: name,
+      image: image,
+      id: id,
     });
+
+    database.ref('group').orderByChild('id').equalTo(id)
+    .once('value', (snapshot)=>{
+      snapshot.forEach((childSnapshot)=>{
+        childSnapshot.ref.child('followers').push().set({
+          follower: user.uid
+        });
+      });
+    });
+
+    
 
     this.setState({
       inFavourites: true,
@@ -104,7 +116,7 @@ export default class ListView extends Component {
               <View style={{flex:1, flexDirection:'column'}}>
               <Text style={styles.textTitleView} >{item.name}</Text>
               <Text style={styles.textView} >{item.description}</Text>
-              <Button buttonStyle={{backgroundColor: '#ff4d4d', width: 100, height:30}} title={ this.state.inFavourites ? "UNFOLLOW" : "FOLLOW"}  onPress={() => this.followgroups()}/>
+              <Button buttonStyle={{backgroundColor: '#ff4d4d', width: 100, height:30}} title="FOLLOW"  onPress={() => this.followgroups(item.name, item.image, item.id)}/>
               <Spacer size={15} />
               </View>
             </View>
