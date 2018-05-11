@@ -1,18 +1,18 @@
 import React from 'react';
 var { View, StyleSheet, Alert } = require('react-native');
 
-import {Button} from 'react-native-elements'
+import {Button} from 'react-native-elements';
 import {Actions} from 'react-native-router-flux';
 import {connect} from 'react-redux';
 
 import styles from "./styles"
 
-import { actions as auth, theme } from "../../../auth/index"
+import { actions as auth, theme } from "../../../../../auth/index"
 const { signOut } = auth;
 
 const { color } = theme;
 
-class Home extends React.Component {
+class SignOut extends React.Component {
     constructor(){
         super();
         this.state = { }
@@ -48,4 +48,4 @@ class Home extends React.Component {
     }
 }
 
-export default connect(null, { signOut })(Home);
+export default connect(null, { signOut })(SignOut);

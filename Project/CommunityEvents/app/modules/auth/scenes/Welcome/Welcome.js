@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View, TouchableOpacity, Image} from 'react-native';
+import {Text, View, TouchableOpacity, Image, StatusBar} from 'react-native';
 
 import { Google } from 'expo';
 import {Button, SocialIcon, Divider} from 'react-native-elements';
@@ -12,6 +12,7 @@ const { signInWithGoogle } = auth;
 import styles from "./styles"
 
 class Welcome extends React.Component {
+    
     constructor() {
         super();
         this.state = {}
@@ -48,7 +49,9 @@ class Welcome extends React.Component {
 
     render() {
         return (
+            
             <View style={styles.container}>
+                <StatusBar hidden={true} />
                 <View style={styles.topContainer}>
                     <Image style={styles.image} source={{uri: ""}}/>
                     <Text style={styles.title}>Welcome to Community Events!</Text>
