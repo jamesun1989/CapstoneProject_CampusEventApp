@@ -3,6 +3,9 @@
 # expo
 .expo/
 
+# sensitivedata
+app/config/constants.js
+
 # dependencies
 /node_modules
 
