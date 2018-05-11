@@ -71,7 +71,7 @@ const eventtabProps = {
 
 const stackProps = {
     titleStyle: { 
-        fontSize: 15,
+        fontSize: 18,
         color: '#ffffff', 
         alignSelf: 'center'},
     navigationBarStyle: {
