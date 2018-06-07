@@ -6,12 +6,11 @@
     - [React-Redux](https://github.com/reactjs/react-redux)
     - [Redux Thunk](https://github.com/reduxjs/redux-thunk)
     - [React Native Redux Listener](https://github.com/line64/react-native-redux-listener)
-    - []
 - __Routing and navigation__
-    - [React Native Router Flux](https://github.com/aksonov/react-native-router-flux) for native mobile
+    - [React Native Router Flux](https://github.com/aksonov/react-native-router-flux) for navigation
 - __UI Toolkit/s__
-    - [Native Base](https://nativebase.io/) for native mobile
-    - [React Native Elements](https://react-native-training.github.io/react-native-elements/) for 
+    - [Native Base](https://nativebase.io/) for UI component
+    - [React Native Elements](https://react-native-training.github.io/react-native-elements/) for UI component
 - __Simpler mobile app development__ through
     - [Expo](https://expo.io/)
 - __User authentication__ example through
